@@ -1,3 +1,6 @@
 nav{
     background-color: rgb(243, 183, 109);
 }
+html{
+    overflow-x: hidden;
+}
