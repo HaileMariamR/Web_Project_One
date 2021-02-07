@@ -4,3 +4,11 @@ nav{
 html{
     overflow-x: hidden;
 }
+
+.pursuecourse{
+    height: 40rem;
+    width: 60rem;
+    margin-bottom: 30px;
+    background-color:rgb(226, 213, 213);
+    margin-left: 200px;
+}

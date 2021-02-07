@@ -3,15 +3,16 @@ M.AutoInit();
 const login = document.querySelector('#Login');
 const signup = document.querySelector('#Signup')
 login.addEventListener('click' ,()=>{
-    location  = './admin.html'
+    location  = './loginPage.html'
 })
 signup.addEventListener('click' ,()=>{
-    location = './student.html'
+    location = './signUpPage.html'
 })
 // document.addEventListener('DOMContentLoaded', function() {
 //     var elems = document.querySelectorAll('.parallax');
 //     var instances = M.Parallax.init(elems, options);
 //   });
+
 
 $('.owl-carousel').owlCarousel({
     loop:true,
