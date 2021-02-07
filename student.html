@@ -7,22 +7,155 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
    
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link rel="stylesheet"   href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+   
     <link rel="stylesheet"    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet"    href="./assets/css/owl.carousel.min.css">
     <link rel="stylesheet"    href="./assets/css/owl.theme.default.min.css">
-    <link rel="stylesheet"    href="../css/style.css">
+    <link rel="stylesheet"    href="./assets/css/style.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
       <Style>
         img{
           width: 10rem;
           height: 19rem;
         }
+       
       </Style>
 </head>
 <body>
+
   <div class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper" >
+          <a href="#" id="home" class="brand-logo">Logo</a>
+          
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a id="Login" class="btn btn-outline-primary" href="./loginPage.html">Login</a></li>
+            <li><a href="./signUpPage.html" id="Signup"  class="btn btn-outline-primary">signup</a></li>
+          </ul>
+        </div>
+      </nav>
+
+</div>
+<div>
+
+  <ul id="tabs-swipe-demo" class="tabs">
+    <li class="tab col s3"><a href="#test-swipe-1 " style="color:blue;">Avialiable courses</a></li>
+    <li class="tab col s3"><a  href="#test-swipe-2" style="color:blue;">Inprogress</a></li>
+    <li class="tab col s3"><a href="#test-swipe-3" style="color: blue;">Take quiz</a></li>
+  </ul>
+  <div class="swipe-content">
+    <div id="test-swipe-1" class="col s12 ">
+
+           <div class="col s12">
+
+              <input style="width:15rem;" class="form-control form-control-lg m-5" type="text" placeholder="Search courses here" aria-label=".form-control-lg example">
+              <div class="row m-5 cardss">
+                  <div class="col-md-4 ">
+                    <div class="card" style="width: 18rem;">
+                      <img class="card-img-top" src="./assets/Images/javascriptImage.jpg" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title">javascript</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary enroll">enroll</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                      <img class="card-img-top" src="./assets/Images/NodejsImage.jpg" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary enroll">enroll</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                      <img class="card-img-top" src="./assets/Images/JavaImage.jpg" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary enroll">enroll</a>
+                      </div>
+                    </div>
+                  </div>
+
+              </div>
+              <div class="row m-5 cardss">
+                <div class="col-md-4">
+                  <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="./assets/Images/javascriptImage.jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary enroll">enroll</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="./assets/Images/NodejsImage.jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary enroll">enroll</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="./assets/Images/JavaImage.jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary enroll">enroll</a>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
+
+          </div>
+
+    </div>
+
+
+  <div id="test-swipe-2" class="col s12 ">
+
+      <div class="enrolledList">
+
+      </div>
+
+
+  </div>
+  <div id="test-swipe-3" class="col s12 ">
+
+
+    <div class="enrolledlistforquiz">
+
+    </div>
+
+  </div>
+
+  </div>
+
+</div>
+ 
+  
+
+
+
+
+
+
+
+
+  <!-- <div class="navbar-fixed">
     <nav>
         <div class="nav-wrapper" >
           <a href="#" id="home" class="brand-logo">Logo</a>
@@ -33,8 +166,15 @@
         </div>
       </nav>
 </div>
-    
+     -->
 
+    <!-- Nav tabs -->
+
+<!-- Nav tabs -->
+
+
+
+<!-- 
   <div class="row">
     <div class="col-md-4">
       <h4 class="btn m-4" >Avialiable Course</h4><br>
@@ -104,20 +244,21 @@
 
 
 
-
-
-
-
-
-
-
+-->
 
 
       
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./assets/javascript/owl.carousel.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  
+  <!-- <script>
+    $(document).ready(function(){
+  $('.tabs').tabs();
+});
+  </script> -->
   <script src="./assets/javascript/student.js"></script>
 
 </body>

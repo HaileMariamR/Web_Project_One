@@ -12,3 +12,33 @@ html{
     background-color:rgb(226, 213, 213);
     margin-left: 200px;
 }
+.swipe-content div{
+    height:40rem;
+
+
+}
+.tabs li{
+    width: 400px;
+    background-color: none;
+    color: turquoise;
+}
+
+.tabs li:hover{
+    background-color: whitesmoke;
+}
+.tabs li a{
+    text-decoration: none;
+    color: blue;
+}
+
+.cardss div{
+    height: 25rem;
+
+}
+.cardss div div img{
+    height: 10rem;
+}
+.cardss div:hover{
+    transform: translateY(10px);
+
+}
