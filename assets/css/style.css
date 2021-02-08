@@ -2,8 +2,69 @@ body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
+#front{
+    margin-top: -50px;
+    height: 60vh;
+    overflow: hidden;
+}
+
+#front img{
+    background-size: cover;
+}
+
+#intro-container{
+    color: aliceblue;
+    font-size: large;
+    font-weight: bold;
+    margin-top: 17vh;
+    height: 30vh;
+    width: 50%;
+}
+
+#intro-container btn{
+    height: 30px !important;
+} 
+#intro{
+    color: aliceblue;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.section-2{
+    margin-top: 5%;
+    
+}
+.trend {
+    display: flex;
+}
+.popular{
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.pop{
+    margin-right: 4%;
+}
+.popular-txt{
+    width: 40%;
+}
+.popular-txt h5{
+    color: brown;
+    margin-top: 3%;
+}
+
+.popular-txt h2{
+    margin-top: 3%;
+    font-weight: bold;
+    font-size: 50px;
+}
+.popular-txt p{
+    margin-top: 3%;
+    font-size: 20px;
+}
 nav{
     background-color: rgb(243, 183, 109);
 }
@@ -51,4 +112,7 @@ html{
 
 .card .card-text{
     font-weight: bold;
+}
+#top-categories .card{
+    box-shadow: none;
 }
