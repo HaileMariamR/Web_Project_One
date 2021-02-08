@@ -1,3 +1,9 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 nav{
     background-color: rgb(243, 183, 109);
 }
@@ -41,4 +47,8 @@ html{
 .cardss div:hover{
     transform: translateY(10px);
 
+}
+
+.card .card-text{
+    font-weight: bold;
 }
