@@ -1,7 +1,10 @@
-body{
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+body{
+    
     overflow: hidden;
 }
 
@@ -13,6 +16,11 @@ body{
 
 #front img{
     background-size: cover;
+}
+
+.two{
+    display: flex; flex-wrap: wrap;
+    justify-content: center;
 }
 
 #intro-container{
@@ -31,6 +39,28 @@ body{
     color: aliceblue;
     font-size: 50px;
     font-weight: bold;
+}
+
+.search div{
+    width: 70%;
+    border-radius: 2px;
+    padding: 15px;
+    margin-top: 17vh;
+    margin-left: 2%;
+    height: 56%;
+    background-color: aliceblue;
+}
+.search div h2{
+    font-weight: bold;
+    font-size: 40px;
+}
+.search div p{
+    font-size: 17px;
+}
+
+.search div input[type="text"]{
+    border: 1px solid black;
+    padding: 2px px;    
 }
 
 .section-2{
