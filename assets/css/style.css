@@ -1,3 +1,111 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    
+    overflow: hidden;
+}
+#front{
+    margin-top: -50px;
+    height: 60vh;
+    overflow: hidden;
+}
+
+#front img{
+    background-size: cover;
+}
+
+.two{
+    display: flex; flex-wrap: wrap;
+    justify-content: center;
+}
+
+#intro-container{
+    color: aliceblue;
+    font-size: large;
+    font-weight: bold;
+    margin-top: 17vh;
+    height: 30vh;
+    width: 50%;
+}
+
+#intro-container btn{
+    height: 30px !important;
+} 
+#intro{
+    color: aliceblue;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.search div{
+    width: 70%;
+    border-radius: 2px;
+    padding: 15px;
+    margin-top: 17vh;
+    margin-left: 4%;
+    height: 56%;
+    background-color: aliceblue;
+}
+.search div h2{
+    font-weight: bold;
+    font-size: 40px;
+}
+.search div p{
+    font-size: 17px;
+}
+
+.search div input[type="text"]{
+    border: 1px solid black;
+    padding: 2px px;    
+}
+
+.section-2{
+    margin-top: 5%;
+    
+}
+.trend {
+    display: flex;
+}
+.popular{
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.pop{
+    margin-right: 4%;
+    position: relative;
+}
+.pop img{
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    /* height: 100px; */
+    width: 70px;
+}
+.pop .card-title{
+    /* margin-left: 18%; */
+    margin-bottom: 5%;
+}
+.popular-txt{
+    width: 40%;
+}
+.popular-txt h5{
+    color: brown;
+    margin-top: 3%;
+}
+
+.popular-txt h2{
+    margin-top: 3%;
+    font-weight: bold;
+    font-size: 50px;
+}
+.popular-txt p{
+    margin-top: 3%;
+    font-size: 20px;
+}
 nav{
     background-color: rgb(243, 183, 109);
 }
@@ -41,4 +149,49 @@ html{
 .cardss div:hover{
     transform: translateY(10px);
 
+}
+
+.card .card-text{
+    font-weight: bold;
+}
+#top-categories .card{
+    box-shadow: none;
+}
+
+.instructor-container{
+    margin-top: 50px;
+    padding: 10px 0;
+}
+
+#instructor{
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    position: relative;
+    height: 30vh;
+    background-color: #fbfbf8;
+}
+#instructor img{
+    top: -6vh;
+    position: absolute;
+}
+#inner-instructor{
+    padding: 70px 0;
+    width: 50%;
+    margin: 0 auto;
+}
+
+#right-instructor{
+    width: 50%;
+    margin-left: 50%;
+}
+
+#ppx{
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20vh 0;
+    color: #fbfbf8;
+}
+#ppx h1{
+    font-weight: bold;
 }
