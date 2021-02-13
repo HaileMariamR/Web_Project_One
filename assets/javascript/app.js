@@ -1,13 +1,15 @@
 M.AutoInit();
 
-const login = document.querySelector('#Login');
+const logintempo = document.querySelector('#Login');
 const signup = document.querySelector('#Signup')
-login.addEventListener('click' ,()=>{
-    location  = './loginPage.html'
-})
-signup.addEventListener('click' ,()=>{
-    location = './signUpPage.html'
-})
+
+
+
+
+
+// signup.addEventListener('click' ,()=>{
+//     location = './signUpPage.html'
+// })
 // document.addEventListener('DOMContentLoaded', function() {
 //     var elems = document.querySelectorAll('.parallax');
 //     var instances = M.Parallax.init(elems, options);
@@ -41,3 +43,19 @@ const enrollbtn = document.querySelector('.enroll');
 //         location = './takingCourse.html'
 
 // });
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded' ,()=>{
+
+
+    logintempo.addEventListener('click' ,()=>{
+        location  = './signupandlogin.html'
+    })
+
+});
