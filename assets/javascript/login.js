@@ -21,16 +21,6 @@ document.addEventListener('DOMContentLoaded' , ()=>{
 
 
 
-        let newdb = new Dexie('usersDatabase');
-        newdb.version(1).stores({
-            users: '++id, fullname, email,password'
-        });
-
-        newdb.open();
-
-
-
-
         submit.addEventListener('click' , adduser );
         login.addEventListener('click' ,userAuthentication);
 

@@ -5,8 +5,9 @@
 }
 body{
     
-    overflow: hidden;
+    overflow-x: hidden;
 }
+
 #front{
     margin-top: -50px;
     height: 60vh;
@@ -195,3 +196,10 @@ html{
 #ppx h1{
     font-weight: bold;
 }
+
+
+
+/* 
+.allCoursePlaceholder{
+    height: 100rem;
+} */
