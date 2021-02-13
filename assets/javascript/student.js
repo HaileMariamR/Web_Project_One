@@ -1,9 +1,4 @@
-// const enroll = document.querySelector('.enroll');
-// const message = document.querySelector('.message');
-// const enrolledlist = document.querySelector('.enrolledList');
-// const cardtitile = document.querySelector('.card-title');
-// const cardtext = document.querySelector('.card-text');
-// const enrolledlistforquiz = document.querySelector('.enrolledlistforquiz');
+
 
 $(document).ready(function(){
   $('.tabs').tabs();
@@ -59,6 +54,7 @@ $(document).ready(function(){
 // }
 
 const allCoursePlaceholder = document.querySelector('.allCoursePlaceholder')
+const search = document.querySelector('#search');
 
 allCourseInformation = [
 
@@ -68,56 +64,32 @@ allCourseInformation = [
     courseDetail:'The modern JavaScript course for everyone! Master JavaScript with projects, challenges and theory. Many courses in one',
     courseImage:'https://i.picsum.photos/id/0/200/300.jpg?hmac=0pq7Zy79Vy4K-8w1qAMo1ppYmPvl-7lvwSx-LyZ7vNY'
 
-    },
-
-
-    { 
-      courseName:"Javascript",
-      courseTitle:"The Complete Javascript crush Course",
-      courseDetail:'The modern JavaScript course for everyone! Master JavaScript with projects, challenges and theory. Many courses in one',
-     courseImage:'https://i.picsum.photos/id/0/200/300.jpg?hmac=0pq7Zy79Vy4K-8w1qAMo1ppYmPvl-7lvwSx-LyZ7vNY'
-      
-
-    },
-
-    { 
-      courseName:"Javascript",
-      courseTitle:"The Complete Javascript crush Course",
-      courseDetail:'The modern JavaScript course for everyone! Master JavaScript with projects, challenges and theory. Many courses in one',
-      courseImage:'https://i.picsum.photos/id/0/200/300.jpg?hmac=0pq7Zy79Vy4K-8w1qAMo1ppYmPvl-7lvwSx-LyZ7vNY'
-
-
-    },
-
-    { 
-      courseName:"Javascript",
-      courseTitle:"The Complete Javascript crush Course",
-      courseDetail:'The modern JavaScript course for everyone! Master JavaScript with projects, challenges and theory. Many courses in one',
-      courseImage:'https://i.picsum.photos/id/0/200/300.jpg?hmac=0pq7Zy79Vy4K-8w1qAMo1ppYmPvl-7lvwSx-LyZ7vNY'
-   
-   
     }
 
   ]
 
 document.addEventListener('DOMContentLoaded' , async()=>{
 
-    courseDatabase.courses.bulkAdd(allCourseInformation);
+    // courseDatabase.courses.bulkAdd(allCourseInformation);
+
+
+    search.addEventListener('keyup' , searchCourse);
 
 
     let getAllCourseInfo = await courseDatabase.courses.toArray();
+    allCourseInformation.innerHTML = '';
 
     
-    for (let index = 0; index < allCourseInformation.length; index++) {
+    for (let index = 0; index < getAllCourseInfo.length; index++) {
 
-        coursename = allCourseInformation[index].courseName;
-        coursetitle = allCourseInformation[index].courseTitle;
-        coursedetail = allCourseInformation[index].courseDetail;
-        courseimage = allCourseInformation[index].courseImage;
+        coursename = getAllCourseInfo[index].courseName;
+        coursetitle = getAllCourseInfo[index].courseTitle;
+        coursedetail = getAllCourseInfo[index].courseDetail;
+        courseimage = getAllCourseInfo[index].courseImage;
 
 
         let oneCourse = document.createElement('div');
-        oneCourse.className = 'card col-md-4' ;
+        oneCourse.className = 'card coursediv col-md-4' ;
         oneCourse.style.width = '25rem';
         oneCourse.style.height = '40rem';
         oneCourse.style.marginLeft = '2rem'
@@ -125,7 +97,7 @@ document.addEventListener('DOMContentLoaded' , async()=>{
         oneCourse.innerHTML = `
                 <img src="${courseimage}" class="card-img-top" alt="..." />
                 <div class="card-body">
-                  <h5 style="font-size:15px;color:cyan" class="card-title">${coursename}</h5>
+                  <h5 style="font-size:15px;color:cyan" class="card-title coursename">${coursename}</h5>
                   
                   <h2 style="font-size:15px;color:black">${coursetitle}</> 
                   <br>
@@ -146,9 +118,34 @@ document.addEventListener('DOMContentLoaded' , async()=>{
     }
 
 
+    function searchCourse(){
+
+      let inputValue = search.value.toString().toUpperCase();
+      let coursename = document.querySelectorAll('.coursename');
+      for (let index = 0; index < coursename.length; index++) {
+          let cNameValue = coursename[index].textContent.toString().toUpperCase();
+
+          if((cNameValue.indexOf(inputValue)> -1)){
+              coursename[index].parentElement.parentElement.style.display = 'block';
+          }
+          else{
+            coursename[index].parentElement.parentElement.style.display = 'none';
+
+          }
+        
+      }
 
 
 
+
+
+
+
+
+
+
+
+    }
 
 
 
