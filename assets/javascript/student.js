@@ -91,22 +91,22 @@ document.addEventListener('DOMContentLoaded' , async()=>{
         let oneCourse = document.createElement('div');
         oneCourse.className = 'card coursediv col-md-4' ;
         oneCourse.style.width = '25rem';
-        oneCourse.style.height = '40rem';
+        oneCourse.style.height = '45rem';
         oneCourse.style.marginLeft = '2rem'
 
         oneCourse.innerHTML = `
-                <img src="${courseimage}" class="card-img-top" alt="..." />
+                <img src="${courseimage}" class="courseimage card-img-top" alt="..." />
                 <div class="card-body">
                   <h5 style="font-size:15px;color:cyan" class="card-title coursename">${coursename}</h5>
                   
-                  <h2 style="font-size:15px;color:black">${coursetitle}</> 
-                  <br>
-                  <p style="" class="card-text">
+                  <h2 coursetitle style="font-size:15px;color:black">${coursetitle}</h2> 
+                  
+                  <p coursedetail style="" class="card-text">
                     ${coursedetail}
                   </p>
                   <p>5⭐⭐⭐⭐⭐</p>
                   <p style="color: brown">100 Students Enrolled</p>
-                  <a href="#" class="btn btn-danger">Enroll</a>
+                  <a href="#" class="btn enroll btn-danger">Enroll</a>
                 </div>
         `
         allCoursePlaceholder.appendChild(oneCourse)
@@ -137,15 +137,148 @@ document.addEventListener('DOMContentLoaded' , async()=>{
 
 
 
-
-
-
-
-
-
-
-
     }
+
+      let enrollbtn = document.querySelectorAll('.enroll');
+      // enrollbtn.addEventListener('click' ,courseEnrollment)
+      for (let index = 0; index < enrollbtn.length; index++) {
+
+            enrollbtn[index].addEventListener('click' , courseEnrollment)
+        
+      }
+
+
+
+
+
+    async  function courseEnrollment(e){
+
+        let enrolledCourseInfo = {
+
+          enrolledcourseName:'',
+          enrolledcourseTitle:'',
+          enrolledcourseDetail:'',
+          enrolledcourseImage:''
+
+
+        }
+
+
+        let enrollParentElement = e.target.parentElement;
+        
+
+        let courseinfo = enrollParentElement.children;
+
+        enrolledCourseInfo.enrolledcourseName = courseinfo[0].textContent;
+        enrolledCourseInfo.enrolledcourseTitle = courseinfo[1].textContent;
+        enrolledCourseInfo.enrolledcourseDetail = courseinfo[2].textContent;
+        enrolledCourseInfo.enrolledcourseImage = enrollParentElement.parentElement.children[0].src;
+
+        studentCourse.courses.put(enrolledCourseInfo)
+
+
+
+        location = './takingcourse.html'
+
+       
+        
+
+      }
+
+
+
+     
+
+
+      //// for enrollment
+         
+
+
+
+
+    
+      const enrolledList = document.querySelector('.enrolledList')
+
+      
+      let getAllEnrolledCourse = await studentCourse.courses.toArray();
+
+      for (let index = 0; index < getAllEnrolledCourse.length; index++) {
+
+          let img = getAllEnrolledCourse[index].enrolledcourseImage;
+          let name = getAllEnrolledCourse[index].enrolledcourseName;
+          let title = getAllEnrolledCourse[index].enrolledcourseTitle;
+          let detail = getAllEnrolledCourse[index].enrolledcourseDetail;
+
+          let newEnrolledCourseElement = document.createElement('div');
+          newEnrolledCourseElement.className ='card coursediv col-md-12'
+
+          newEnrolledCourseElement.innerHTML = ` <img src="${img}" class="courseimage card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 style="font-size:15px;color:cyan" class="card-title coursename">${name}</h5>
+            
+            <h2 coursetitle style="font-size:15px;color:black">${title}</h2> 
+            
+            <p coursedetail style="" class="card-text">
+              ${detail}
+            </p>
+            <p>5⭐⭐⭐⭐⭐</p>
+            <p style="color: brown">100 Students Enrolled</p>
+            <a href="#" class="btn enroll btn-danger"> go to course</a>
+            <a href="#" class="btn remove btn-danger"> remove Course</a>
+            <a href="#" class="btn takequiz btn-danger"> take quiz</a>
+
+
+          </div>
+        `
+        enrolledList.appendChild(newEnrolledCourseElement)
+
+
+          
+      }
+
+      
+        //// remove course
+
+
+
+      let removecoursebtn = document.querySelectorAll('.remove');
+      for (let index = 0; index < removecoursebtn.length; index++) {
+          removecoursebtn[index].addEventListener('click' , courseRemove)        
+      }
+    
+       function courseRemove(e){
+
+          e.target.parentElement.parentElement.style.display = 'none';
+          let removedCourseName = e.target.parentElement.children[2].textContent;
+          // studentCourse.courses.where('courseName').equals(`${removedCourseName}`).delete();
+
+          
+
+
+        //   studentCourse.transaction('rw', studentCourse.courses, function* () {
+        //     var deleteCount = yield studentCourse.courses
+        //         .where("courseName").equals(removedCourseName).delete();
+        
+        //     console.log ("Successfully deleted " + deleteCount + " items");
+        //  }).catch (e => {
+        //     console.error (e);
+        // });
+
+      }
+
+
+
+      
+
+
+
+
+
+
+
+
+
+    
 
 
 

@@ -23,3 +23,16 @@ courseDatabase.version(1).stores({
 courseDatabase.open()
 
 
+// student's course
+
+
+let studentCourse = new Dexie('studentCourseDatabase');
+studentCourse.version(1).stores({
+
+    courses: '++id , enrolledcourseName ,enrolledcourseTitle, enrolledcourseDetail , enrolledcourseImage'
+
+
+})
+
+studentCourse.open();
+
