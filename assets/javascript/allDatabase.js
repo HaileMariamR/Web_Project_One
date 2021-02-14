@@ -2,6 +2,8 @@
 // users Database 
 
 
+
+
 let newdb = new Dexie('usersDatabase');
 newdb.version(1).stores({
     users: '++id, fullname, email,password'
@@ -12,6 +14,8 @@ newdb.open();
 
 
 //Course Database 
+
+
 
 
 let courseDatabase = new Dexie('allCourseDatabase');
@@ -26,6 +30,8 @@ courseDatabase.open()
 // student's course
 
 
+
+
 let studentCourse = new Dexie('studentCourseDatabase');
 studentCourse.version(1).stores({
 
@@ -36,3 +42,12 @@ studentCourse.version(1).stores({
 
 studentCourse.open();
 
+
+// staff 
+
+let yondahStaff = new Dexie('staffDatabase');
+yondahStaff.version(1).stores({
+    staffs : '++id , lecturerFullname , lecturerCountry , lecturerAddress , courseName, courseTitle , courseDiscription, courseImage, proposal'
+})
+
+yondahStaff.open();

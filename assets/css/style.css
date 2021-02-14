@@ -1,3 +1,8 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+
+
 *{
     margin: 0;
     padding: 0;
@@ -204,3 +209,48 @@ html{
 .allCoursePlaceholder{
     height: 100rem;
 } */
+
+
+
+
+.admin_header{
+    height: 80px;
+    width: 100%;
+    background-color: rgb(21, 37, 37);
+    color: beige;
+}
+
+.admin_title{
+
+     text-align: center;
+     padding-top: 15px;
+     font-size: 2rem;
+     font-family: 'Pacifico', cursive;
+
+}
+
+.leftContainer ul li a {
+    text-decoration: none;
+
+}
+.leftContainer ul li {
+    list-style: none;
+}
+
+
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
