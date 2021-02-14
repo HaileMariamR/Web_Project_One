@@ -118,6 +118,8 @@ document.addEventListener('DOMContentLoaded' , async()=>{
     }
 
 
+    //// search courses 
+
     function searchCourse(){
 
       let inputValue = search.value.toString().toUpperCase();
@@ -138,6 +140,10 @@ document.addEventListener('DOMContentLoaded' , async()=>{
 
 
     }
+
+
+
+    ///// Course Enrollment 
 
       let enrollbtn = document.querySelectorAll('.enroll');
       // enrollbtn.addEventListener('click' ,courseEnrollment)
@@ -201,6 +207,7 @@ document.addEventListener('DOMContentLoaded' , async()=>{
 
       
       let getAllEnrolledCourse = await studentCourse.courses.toArray();
+      // console.log(getAllEnrolledCourse);
 
       for (let index = 0; index < getAllEnrolledCourse.length; index++) {
 
@@ -223,17 +230,14 @@ document.addEventListener('DOMContentLoaded' , async()=>{
             </p>
             <p>5⭐⭐⭐⭐⭐</p>
             <p style="color: brown">100 Students Enrolled</p>
-            <a href="#" class="btn enroll btn-danger"> go to course</a>
+            <a href="./takingcourse.html" class="btn enroll btn-danger"> go to course</a>
             <a href="#" class="btn remove btn-danger"> remove Course</a>
             <a href="#" class="btn takequiz btn-danger"> take quiz</a>
 
 
           </div>
         `
-        enrolledList.appendChild(newEnrolledCourseElement)
-
-
-          
+        enrolledList.appendChild(newEnrolledCourseElement);
       }
 
       
@@ -249,22 +253,137 @@ document.addEventListener('DOMContentLoaded' , async()=>{
        function courseRemove(e){
 
           e.target.parentElement.parentElement.style.display = 'none';
-          let removedCourseName = e.target.parentElement.children[2].textContent;
-          // studentCourse.courses.where('courseName').equals(`${removedCourseName}`).delete();
+          let removedCourseName = e.target.parentElement.children[0].textContent;
+          // console.log(removedCourseName );
+          studentCourse.courses.where('enrolledcourseName').equals(removedCourseName).delete();
+          // studentCourse.courses.where('enrolledcourseName').equals('').delete();
+          // studentCourse.courses.delete(1);
+          
+
+      }
+
+      // take quiz  
+      const enrolledlistforquiz = document.querySelector('.enrolledlistforquiz');
+      const takequiz = document.querySelectorAll('.takequiz');
+      for (let index = 0; index < takequiz.length; index++) {
+        takequiz[index].addEventListener('click' , takeQuiz); 
+      }
+
+      let listOfQuestions = [
+
+        {
+            Question : " A function definition expression can be called as_______________",
+
+            a:'Function prototype',
+            b:' Function literal' ,
+            c:'Function calling' ,
+            d:'Function declaration', 
+            answer : 'b'
+
+
+        },
+        {
+
+          Question : "The expression of calling (or executing) a function or method in JavaScript is called ________",
+
+          a:'Primary expression',
+          b:'Functional expression' ,
+          c:'Invocation expression' ,
+          d:'Property Access Expression',
+          answer:'c'
+        },
+        {
+          Question : " Which of the operator is used to test if a particular property exists or not?",
+
+          a:'in',
+
+          b:'exist' ,
+
+          c:'within' ,
+          d:' exists',
+          answer:'a'
+
+        },
+        {
+          Question : "Among the following, which one is a ternary operator?",
+
+          a:'+',
+
+          b:':' ,
+
+          c:'-' ,
+          d:'?' ,
+          answer:'d'
+        },
+        {
+            Question :' The property of a primary expression is ____________',
+            a:' stand-alone expressions',
+            b:'basic expressions containing all necessary functions',
+            c:' contains variable references alone',
+            d:'contains only keywords',
+            answer:'a'
+
+        }
+
+
+      ]
+
+      function takeQuiz(e){
+
+          for (let index = 0; index < listOfQuestions.length; index++) {
+              let questionDiv = document.createElement('div');
+              questionDiv.innerHTML = `
+
+              
+
+                    <h3>${index + 1}, ${listOfQuestions[index].Question}</h3>
+                  &nbsp;  &nbsp; &nbsp;  <h4>a) . ${listOfQuestions[index].a}</h4>
+                  &nbsp;  &nbsp; &nbsp;   <h4>b) . ${listOfQuestions[index].b}</h4>
+                  &nbsp;  &nbsp; &nbsp;   <h4>c) . ${listOfQuestions[index].c}</h4>
+                  &nbsp;  &nbsp; &nbsp;   <h4>d) . ${listOfQuestions[index].d}</h4>
+
+
+
+
+              
+              `
+              let viewAnswer = document.createElement('a');
+              viewAnswer.className = 'btn viewAnswer'
+              viewAnswer.textContent   = 'View Answer'
+              questionDiv.appendChild(viewAnswer)
+              viewAnswer.addEventListener('click' , ()=>{
+                alert(`Answer : ${listOfQuestions[index].answer}`)
+              })
+          
+              enrolledlistforquiz.appendChild(questionDiv);
+
+            
+          }
+
 
           
 
+          let submitAnswerbtn = document.createElement('a')
+          submitAnswerbtn.textContent = 'mark As Taken'
+          submitAnswerbtn.className = 'submitanswerbtn btn btn-primary';
+          submitAnswerbtn.addEventListener('click' , ()=>{
+            alert('u taken the exam successfully')
+            location = './takingcourse.html'
+          })
+          enrolledlistforquiz.appendChild(submitAnswerbtn)
 
-        //   studentCourse.transaction('rw', studentCourse.courses, function* () {
-        //     var deleteCount = yield studentCourse.courses
-        //         .where("courseName").equals(removedCourseName).delete();
-        
-        //     console.log ("Successfully deleted " + deleteCount + " items");
-        //  }).catch (e => {
-        //     console.error (e);
-        // });
+          e.target.href ="#test-swipe-3"
 
       }
+      
+
+
+
+
+
+
+
+
 
 
 
