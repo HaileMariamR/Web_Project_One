@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded' ,()=>{
 
 
     logintempo.addEventListener('click' ,()=>{
-        location  = './signupandlogin.html'
+        location  = './loginPage.html'
     })
 
 
