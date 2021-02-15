@@ -24,22 +24,17 @@
     </head>
 
     <body>
-      <nav >
-        <div class="nav-wrapper">
-          <a href="#!" class="brand-logo"><i class="material-icons">email</i>(Logo)</a>
-          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./signUpPage.html">Sign Up</a></li>
-            <li><a href="#">Help</a></li>
-          </ul>
-          <ul class="side-nav" id="mobile-demo">
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./signUpPage.html">Sign Up</a></li>
-            <li><a href="#">Help</a></li>
-          </ul>
-        </div>
-      </nav>
+      <div class="navbar-fixed">
+        <nav>
+          <div class="nav-wrapper">
+            <a href="#" id="home" class="brand-logo">Logo</a>
+  
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li><a id="Login" class="btn btn-outline-primary">Login</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
 
   <main>
     <center style="margin-top: 3em;">
@@ -54,19 +49,19 @@
 
             <div class='row'>
               <div class='input-field col s12'>
-                <input class='validate' type='text' name='email' id='email' required />
-                <label for='email'>Full Name</label>
+                <input class='validate' type='text' name='name' id='name' required />
+                <label for='name'>Full Name</label>
               </div>
             </div>
             <div class='row'>
               <div class='input-field col s12'>
-                <input class='validate' type='text' name='email' id='email' required />
+                <input class='validate' type='email' name='email' id='email' required />
                 <label for='email'>Email</label>
               </div>
             </div>
             <div class='row'>
               <div class='input-field col s12'>
-                <input class='validate' type='password' name='email' id='password' />
+                <input class='validate' type='password' name='password' id='password' />
                 <label for='password'>Password</label>
               </div>
             </div>
@@ -74,17 +69,13 @@
 
             <div class='row'>
               <div class='input-field col s12'>
-                <input class='validate' type='password' name='password' id='confrimPassword' />
+                <input class='validate' type='password' name='confimPassword' id='confirmPassword' />
                 <label for='confimPassword'>confrim password</label>
               </div>
               
               <label style='float: right;'>
                 
-<<<<<<< HEAD
-                <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect indigo signup'>signup</button>
-=======
-                <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect indigo'>signup</button>
->>>>>>> 20def786112b3eb909155105fa4ffc4b6722a915
+                <button type='submit'  id="submit" class='col s12 btn btn-large waves-effect indigo signup'>signup</button>
 							</label>
             </div>
           </form>
@@ -99,9 +90,9 @@
       <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
       <script> $(".button-collapse").sideNav(); </script>
-<<<<<<< HEAD
       <script src="./assets/javascript/signupage.js"></script>
-=======
->>>>>>> 20def786112b3eb909155105fa4ffc4b6722a915
+      <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+      <script src="./assets/javascript/allDatabase.js"></script>
+      <script src="assets/javascript/signupage.js"></script>
     </body>
   </html>

@@ -1,27 +1,15 @@
-// const login = document.querySelector('.login');
-// login.addEventListener('click', ()=>{
-
-//     location = './admin.html'
-
-// });
-
 
 const userEmailAddress = document.querySelector('#emailaddress');
 const userPassword = document.querySelector('#userpassword');
-const checkboxuser = document.querySelector('#checkboxuser');
-const checkboxadmin = document.querySelector('#checkboxadmin');
+const radioUser = document.querySelector('#radioUser');
+const radioAdmin = document.querySelector('#radioAdmin');
 const login = document.querySelector('#login');
-const fullname = document.querySelector('#name');
-const email = document.querySelector('#email')
-const password = document.querySelector('#password')
-const submit = document.querySelector('#submit')
-
-
+login.addEventListener("click", () => {
+    console.log("Hello world")
+})
 document.addEventListener('DOMContentLoaded' , ()=>{
 
 
-
-        submit.addEventListener('click' , adduser );
         login.addEventListener('click' ,userAuthentication);
 
 
@@ -29,7 +17,7 @@ document.addEventListener('DOMContentLoaded' , ()=>{
         function adduser(e){
             e.preventDefault()
 
-         
+            alert("the login page is clicked")
             if( !fullname.value == '' && !email.value=='' && !password.value == '' ){
                 newdb.users.put({
                     fulname : fullname.value ,
@@ -44,7 +32,7 @@ document.addEventListener('DOMContentLoaded' , ()=>{
             }
             else{
                 alert('fill all required info!')
-                location = './signupandlogin.html'
+                location = './loginPage.html'
             }
             fullname.value = ""
             email.value = ""
@@ -77,9 +65,9 @@ document.addEventListener('DOMContentLoaded' , ()=>{
                 }    
             }
             
-            if(verifyUser == true && checkboxuser.checked){
+            if(verifyUser == true && radioUser.checked){
                 location = './student.html'
-            }else if ((useremail === 'harry@admin.com' && userpass == 'password') && (checkboxadmin.checked)){
+            }else if ((useremail === 'harry@admin.com' && userpass == 'password') && (radioAdmin.checked)){
                 location = './admin.html'
 
             }

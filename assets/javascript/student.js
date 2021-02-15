@@ -8,7 +8,7 @@ $(document).ready(function(){
 
 //     addCourse();
 //     takequiz();
-//     location = './takingcourse.html'
+//     location = './courseDisplayInfo.html'
 
 // });
 
@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded' , async()=>{
 
 
 
-        location = './takingcourse.html'
+        location = './courseDisplayInfo.html'
 
        
         
@@ -231,7 +231,7 @@ document.addEventListener('DOMContentLoaded' , async()=>{
             <p>5⭐⭐⭐⭐⭐</p>
 
             <p style="color: brown">100 Students Enrolled</p>
-            <a href="./takingcourse.html" class="btn enroll btn-danger"> go to course</a>
+            <a href="./courseDisplayInfo.html" class="btn enroll btn-danger"> go to course</a>
             <a href="#" class="btn remove btn-danger"> remove Course</a>
             <a href="#" class="btn takequiz btn-danger"> take quiz</a>
 
@@ -371,7 +371,7 @@ document.addEventListener('DOMContentLoaded' , async()=>{
           submitAnswerbtn.className = 'submitanswerbtn btn btn-primary';
           submitAnswerbtn.addEventListener('click' , ()=>{
             alert('u taken the exam successfully')
-            location = './takingcourse.html'
+            location = './courseDisplayInfo.html'
           })
           enrolledlistforquiz.appendChild(submitAnswerbtn)
 
