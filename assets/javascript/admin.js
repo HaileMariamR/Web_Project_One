@@ -148,7 +148,6 @@ document.addEventListener('DOMContentLoaded' , async()=>{
     function displaysecond(){
         manageCourse.style.display = 'none'
         approvecourse.style.display = 'block'
-        
         manageUsers.style.display = 'none'
 
          
@@ -167,35 +166,34 @@ document.addEventListener('DOMContentLoaded' , async()=>{
             let outputValue = '';
             let instructorinfodiv = document.createElement('div');
 
-           
-
-
-                lecturerFullnamevalue = allStaffs[i].lecturerFullname;
-                lecturerCountryvalue = allStaffs[i].lecturerCountry;
-                lecturerAddressvalue = allStaffs[i].lecturerAddress;
-                courseNamevalue = allStaffs[i].courseName;
-                courseTitlevalue = allStaffs[i].courseTitle;
-                courseDiscriptionvalue = allStaffs[i].courseDiscription;
-                courseImagevalue =allStaffs[i].courseImage;
-                proposal = allStaffs[i].proposal;
+            lecturerFullnamevalue = allStaffs[i].lecturerFullname;
+            lecturerCountryvalue = allStaffs[i].lecturerCountry;
+            lecturerAddressvalue = allStaffs[i].lecturerAddress;
+            courseNamevalue = allStaffs[i].courseName;
+            courseTitlevalue = allStaffs[i].courseTitle;
+            courseDiscriptionvalue = allStaffs[i].courseDiscription;
+            courseImagevalue =allStaffs[i].courseImage;
+            proposal = allStaffs[i].proposal;
 
                
-                     outputValue += `
-                                
-                            <div style="background-color: ;margin-top: 4rem;width:50rem" >
-                                <h5>instructor Name     : ${lecturerCountryvalue} </h5>
-                                <h5>instructor country  :  ${lecturerCountryvalue}</h5>
-                                <h5>instructor eamil    :  ${lecturerAddressvalue} </h5>
-                                <h5>instructor coursename : ${courseNamevalue} </h5>
-                                <h5>instructor coursetitle : ${courseTitlevalue}</h5>
-                                <h5>instructor coursedetail : ${courseDiscriptionvalue}</h5>
-                                <h5>instructor courseimage : ${courseImagevalue}</h5>
-                                <h5>instructor proposal : ${proposal}</h5>
-                                 <a class="btn approve btn-outline-success  "  href="">Approve</a>
-                                
-                            </div>
+            outputValue += `
+                    
+                <div style="background-color: ;margin-top: 4rem;width:50rem" >
 
-                    `
+                    <h5>instructor Name     : ${lecturerFullnamevalue} </h5>
+                    <h5>instructor country  :  ${lecturerCountryvalue}</h5>
+                    <h5>instructor eamil    :  ${lecturerAddressvalue} </h5>
+                    <span>instructor coursename : </span> <span> ${courseNamevalue} </span><br>
+                   
+                    <h5>instructor coursetitle : ${courseTitlevalue}</h5>
+                    <h5>instructor coursedetail : ${courseDiscriptionvalue}</h5>
+                    <h5>instructor courseimage : ${courseImagevalue}</h5>
+                    <h5>instructor proposal : ${proposal}</h5>
+                    <a class="btn approve btn-outline-success  "  href="">Approve</a>
+                    
+                </div>
+
+        `
 
 
             
@@ -204,9 +202,6 @@ document.addEventListener('DOMContentLoaded' , async()=>{
      
             instructorinfodiv.innerHTML = outputValue;
             approvecourse.appendChild(instructorinfodiv)
-
-
-
 
 
             
@@ -223,11 +218,14 @@ document.addEventListener('DOMContentLoaded' , async()=>{
         }
         function approveCourse(e){
             e.target.parentElement.parentElement.style.display = 'none';
-            let approvedCourse = e.target.parentElement.children[3].textContent;
-            yondahStaff.staffs.where('courseName').equals(approvedCourse).delete();
+        
+            let approvedCourse = e.target.parentElement.children[4].textContent;
+            // console.log(approvedCourse);
+            yondahStaff.staffs.where('courseName').equals(`${courseNamevalue}`).delete();
+            yondahStaff.staffs.delete(4);
+
 
             // alert('f')
-
             courseDatabase.courses.put({
 
                 courseName:courseNamevalue,
@@ -237,13 +235,12 @@ document.addEventListener('DOMContentLoaded' , async()=>{
 
             })
 
-           
-
-
         }
 
 
     }
+
+    displaysecond()
 
 
 

@@ -229,6 +229,7 @@ document.addEventListener('DOMContentLoaded' , async()=>{
               ${detail}
             </p>
             <p>5⭐⭐⭐⭐⭐</p>
+
             <p style="color: brown">100 Students Enrolled</p>
             <a href="./takingcourse.html" class="btn enroll btn-danger"> go to course</a>
             <a href="#" class="btn remove btn-danger"> remove Course</a>
@@ -239,6 +240,8 @@ document.addEventListener('DOMContentLoaded' , async()=>{
         `
         enrolledList.appendChild(newEnrolledCourseElement);
       }
+
+      
 
       
         //// remove course
@@ -256,7 +259,7 @@ document.addEventListener('DOMContentLoaded' , async()=>{
           let removedCourseName = e.target.parentElement.children[0].textContent;
           // console.log(removedCourseName );
           studentCourse.courses.where('enrolledcourseName').equals(removedCourseName).delete();
-          // studentCourse.courses.where('enrolledcourseName').equals('').delete();
+          // stud entCourse.courses.where('enrolledcourseName').equals('').delete();
           // studentCourse.courses.delete(1);
           
 

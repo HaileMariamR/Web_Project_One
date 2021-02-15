@@ -48,10 +48,11 @@ const enrollbtn = document.querySelector('.enroll');
 
 
 
+const sliderItem = document.querySelector('.mainSlider')
 
 
 
-document.addEventListener('DOMContentLoaded' ,()=>{
+document.addEventListener('DOMContentLoaded' , async ()=>{
 
 
     logintempo.addEventListener('click' ,()=>{
@@ -59,7 +60,31 @@ document.addEventListener('DOMContentLoaded' ,()=>{
     })
 
 
+
+    let allCourseforIndexPage = await courseDatabase.courses.toArray();
+    let output = ''
     
+    // for (let index = 0; index < allCourseforIndexPage.length; index++) {
+        
+    // //     output +=`
+    // //     <div class="card" style="width: 25rem">
+    // //      <img src="${allCourseforIndexPage[index].courseImage}" class="card-img-top" alt="..." />
+    // //     <div class="card-body">
+    // //         <h5 class="card-title">${allCourseforIndexPage[index].courseTitle}</h5>
+    // //         <p class="card-text">
+    // //             ${allCourseforIndexPage[index].courseDetail}
+    // //         </p>
+    // //         <p>5⭐⭐⭐⭐⭐</p>
+    // //         <p style="color: brown">23423 Students Enrolled</p>
+    // //         <a href="./signupandlogin.html" class="btn btn-danger">Enroll</a>
+    // //     </div>
+    // //     </div>
+    
+    // //     `
+    // // }
+
+    // // sliderItem.innerHTML = output ;
+    // }
 
 
 
