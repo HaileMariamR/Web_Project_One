@@ -10,12 +10,18 @@ const coursetitle = document.querySelector('#coursetitle');
 const coursedetail = document.querySelector('#coursedetail');
 const courseimage = document.querySelector('#courseimage');
 const addcorusebtn = document.querySelector('#adminaddcourse');
+const coursePlaceholder = document.querySelector('.coursePlaceholder')
+
+const ManageCourses = document.querySelector('.manageCoursebtn')
+const approveCoursebtn = document.querySelector('.approveCoursebtn')
+const manageUserbtn = document.querySelector('.manageUserbtn')
+
+const manageCourse = document.querySelector('.manageCourse')
+const approvecourse = document.querySelector('.approvecourse');
+const manageUsers  = document.querySelector('.manageUsers');
 
 
-
-
-
-document.addEventListener('DOMContentLoaded' , ()=>{
+document.addEventListener('DOMContentLoaded' , async()=>{
 
     addcorusebtn.addEventListener('click' , adminAddCourse)
 
@@ -47,51 +53,207 @@ document.addEventListener('DOMContentLoaded' , ()=>{
 
 
 
-
-})
-
-
-
-
-
-// main Admin Activity 
-const ManageCourses = document.querySelector('.manageCoursebtn')
-const approveCoursebtn = document.querySelector('.approveCoursebtn')
-const manageUserbtn = document.querySelector('.manageUserbtn')
-
-const manageCourse = document.querySelector('.manageCourse')
-const approvecourse = document.querySelector('.approvecourse');
-const manageUsers  = document.querySelector('.manageUsers');
-
-
-
-document.addEventListener('DOMContentLoaded' , async ()=>{
-
+    // Main admin activity
 
     ///////////////////////////////  About Displaying
     approvecourse.style.display = 'none'
     manageUsers.style.display = 'none'
+// main Admin Activity 
 
     ManageCourses.addEventListener('click' , displayfirst)
     approveCoursebtn.addEventListener('click' , displaysecond)
     manageUserbtn.addEventListener('click' , displaythird)
 
 
+
+    let allCourses = await courseDatabase.courses.toArray();
     function displayfirst(){
         manageCourse.style.display = 'block'
         approvecourse.style.display = 'none'
         manageUsers.style.display = 'none'
+        let title = document.createElement('h3');
+        title.className  = 'admin_title';
+        title.textContent = 'All Courses'
 
-    }
+        coursePlaceholder.innerHTML ='';
+        coursePlaceholder.appendChild(title)
+
+        for (let index = 0; index < allCourses.length; index++) {
+            let     coursename = allCourses[index].courseName;
+            let      coursetitle = allCourses[index].courseTitle;
+            let      coursedetail = allCourses[index].courseDetail;
+            let       courseimage = allCourses[index].courseImage;
+
+
+            let oneCourse = document.createElement('div');
+            oneCourse.className = 'card coursediv col-md-4' ;
+            oneCourse.style.width = '25rem';
+            oneCourse.style.height = '24rem';
+            oneCourse.style.marginLeft = '2rem'
+            oneCourse.style.marginTop = '4rem'
+
+            oneCourse.innerHTML = `
+                    <img src="${courseimage}" class="courseimage card-img-top" alt="..." />
+                    <div class="card-body">
+                    <h5 style="font-size:15px;color:cyan" class="card-title coursename">${coursename}</h5>
+                    
+                    <h2 coursetitle style="font-size:15px;color:black">${coursetitle}</h2> 
+                    
+                    <p coursedetail style="" class="card-text">
+                        ${coursedetail}
+                    </p>
+                    <a href="#" id='r' class="btn remove btn-outline-danger">Remove</a>
+                    </div>
+            `
+            coursePlaceholder.appendChild(oneCourse)
+
+        }
+        // console.log(allCourses);
+
+
+
+        let removecoursebtn = document.querySelectorAll('#r');
+        for (let index = 0; index < removecoursebtn.length; index++) {
+            removecoursebtn[index].addEventListener('click' , courseRemove)        
+        }
+   
+      
+         function courseRemove(e){
+             console.log('frseh start');
+            e.target.parentElement.parentElement.style.display = 'none';
+            let removedCourseName = e.target.parentElement.children[0].textContent;
+            // console.log(removedCourseName );
+            courseDatabase.courses.where('courseName').equals(removedCourseName).delete();
+            studentCourse.courses.where('enrolledcourseName').equals('').delete();
+            // studentCourse.courses.delete(1);
+   
+   
+        }
+   
+   
+   
+     }
+    
+
+
+
+
+
+
+    //// Approve 
+
+
+
+    let allStaffs = await yondahStaff.staffs.toArray();
     function displaysecond(){
         manageCourse.style.display = 'none'
         approvecourse.style.display = 'block'
+        
         manageUsers.style.display = 'none'
+
+         
+        let lecturerFullnamevalue = '';
+        let lecturerCountryvalue  = ' ' ;
+        let lecturerAddressvalue = '' ;
+        let courseNamevalue = '' ;
+        let courseTitlevalue = '' ;
+        let courseDiscriptionvalue = '';
+        let courseImagevalue = '';
+        let proposal = '';
+        approvecourse.innerHTML = ''
+
+        // console.log(allStaffs);
+        for (let i = 0; i < allStaffs.length; i++) {
+            let outputValue = '';
+            let instructorinfodiv = document.createElement('div');
+
+           
+
+
+                lecturerFullnamevalue = allStaffs[i].lecturerFullname;
+                lecturerCountryvalue = allStaffs[i].lecturerCountry;
+                lecturerAddressvalue = allStaffs[i].lecturerAddress;
+                courseNamevalue = allStaffs[i].courseName;
+                courseTitlevalue = allStaffs[i].courseTitle;
+                courseDiscriptionvalue = allStaffs[i].courseDiscription;
+                courseImagevalue =allStaffs[i].courseImage;
+                proposal = allStaffs[i].proposal;
+
+               
+                     outputValue += `
+                                
+                            <div style="background-color: ;margin-top: 4rem;width:50rem" >
+                                <h5>instructor Name     : ${lecturerCountryvalue} </h5>
+                                <h5>instructor country  :  ${lecturerCountryvalue}</h5>
+                                <h5>instructor eamil    :  ${lecturerAddressvalue} </h5>
+                                <h5>instructor coursename : ${courseNamevalue} </h5>
+                                <h5>instructor coursetitle : ${courseTitlevalue}</h5>
+                                <h5>instructor coursedetail : ${courseDiscriptionvalue}</h5>
+                                <h5>instructor courseimage : ${courseImagevalue}</h5>
+                                <h5>instructor proposal : ${proposal}</h5>
+                                 <a class="btn approve btn-outline-success  "  href="">Approve</a>
+                                
+                            </div>
+
+                    `
+
+
+            
+
+                
+     
+            instructorinfodiv.innerHTML = outputValue;
+            approvecourse.appendChild(instructorinfodiv)
+
+
+
+
+
+            
+        }
+
+
+
+        
+
+        let approvebtn = document.querySelectorAll('.approve');
+        for (let index = 0; index < approvebtn.length; index++) {
+                    
+            approvebtn[index].addEventListener('click' , approveCourse);
+        }
+        function approveCourse(e){
+            e.target.parentElement.parentElement.style.display = 'none';
+            let approvedCourse = e.target.parentElement.children[3].textContent;
+            yondahStaff.staffs.where('courseName').equals(approvedCourse).delete();
+
+            // alert('f')
+
+            courseDatabase.courses.put({
+
+                courseName:courseNamevalue,
+                courseTitle:courseTitlevalue,
+                courseDetail: courseDiscriptionvalue,
+                courseImage:courseImagevalue
+
+            })
+
+           
+
+
+        }
+
 
     }
 
-    let allusers = await newdb.users.toArray();
 
+
+
+
+
+    //// Manage users
+
+
+    let allusers = await newdb.users.toArray();
     function displaythird(){
         manageCourse.style.display = 'none'
         approvecourse.style.display = 'none'
@@ -136,24 +298,22 @@ document.addEventListener('DOMContentLoaded' , async ()=>{
         manageUsers.appendChild(userTable)
 
 
-        // console.log(allusers);
-
+        // console.log(allusers)
 
     }
-
-    ///////////////////////////////////////////////////////////////
-
-    // let allusers = await newdb.users.toArray();
-
-
-    
-
-    // console.log(allusers);
 
 
 
 
 })
+
+
+
+
+
+
+
+
 
 
 

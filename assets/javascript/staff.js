@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded' , ()=>{
 
 
               yondahStaff.staffs.put(allrequiredinformation)
+              location = './index.html'
                 
 
 

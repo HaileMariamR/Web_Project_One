@@ -43,11 +43,15 @@ studentCourse.version(1).stores({
 studentCourse.open();
 
 
-// staff 
+// staff  Database 
+
+
 
 let yondahStaff = new Dexie('staffDatabase');
 yondahStaff.version(1).stores({
     staffs : '++id , lecturerFullname , lecturerCountry , lecturerAddress , courseName, courseTitle , courseDiscription, courseImage, proposal'
 })
 
+
 yondahStaff.open();
+
