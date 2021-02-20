@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* border: 0.5px solid green; */
+}
+
+main {
+    width: 40%;
+    margin: 5% auto;
+}
+
+.head {
+    margin-top: 5%;
+}
+
+.main {
+    margin-top: 3%;
+}

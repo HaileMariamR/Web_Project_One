@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="stylesheet" href="./assets/css/login.css" />
+		<title>Login</title>
+	</head>
+	<body>
+		<header>
+			<h1>YONDAH</h1>
+		</header>
+		<div class="hero">
+			<div class="form-box">
+				<img src="assets/Images/skill.png" alt="" />
+				<div class="button-box">
+					<div id="btn"></div>
+					<button type="button" class="toggle-btn" onclick="login()">Log In</button>
+					<button type="button" class="toggle-btn" onclick="signup()">Sign Up</button>
+				</div>
+
+				<form action="" class="login input-group">
+					<input type="text" name="text" class="input-field" placeholder="user name" required />
+					<input type="password" name="password" class="input-field" placeholder="password" required />
+					<input type="checkbox" name="" class="check-box" /><span>Admin?</span>
+					<button type="submit" class="submit-btn">Login</button>
+				</form>
+				<!--  -->
+				<!--  -->
+				<form action="" class="register input-group">
+					<input type="text" class="input-field" placeholder="user name" required />
+					<input type="email" name="email" class="input-field" placeholder="Email" required />
+					<input type="password" class="input-field" placeholder="password" required />
+					<!-- <input type="checkbox" name="" class="check-box" /><span></span> -->
+					<button type="submit" class="submit-btn">Sign Up</button>
+				</form>
+			</div>
+		</div>
+
+		<script>
+			var x = document.querySelector('.login');
+			var y = document.querySelector('.register');
+			var z = document.getElementById('btn');
+
+			function login() {
+				x.style.left = '10%';
+				y.style.left = '100%';
+				z.style.left = '0%';
+			}
+			function signup() {
+				x.style.left = '-100%';
+				y.style.left = '10%';
+				z.style.left = '51%';
+			}
+		</script>
+		<script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+		<script src="./assets/javascript/allDatabase.js"></script>
+		<script src="./assets/javascript/login.js"></script>
+	</body>
+</html>
