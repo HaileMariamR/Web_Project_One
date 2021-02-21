@@ -1,5 +1,4 @@
 let sess = Cookies.get('user');
-console.log(sess);
 if (sess) {
 	var z = [];
 	var res = sess.split('&');
@@ -11,12 +10,12 @@ if (sess) {
 	let role = z[1][1];
 
 	if (role == 'student') {
-		location = './index.html';
+		location = './auth.html';
 	} else if (role == 'instructor') {
 		location = './staff.html';
 	} else if (role == 'admin') {
 		location = './admin.html';
 	}
 } else {
-	location = './login.js';
+	location = './auth.html';
 }

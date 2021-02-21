@@ -49,7 +49,24 @@
 							<a class="nav-link" href="#">Link</a>
 						</li>
 					</ul>
-					<a href="./login.html" class="btn btn-primary">Login</a>
+					<div id="profile" class="nav-item dropdown">
+						<a
+							class="nav-link dropdown-toggle"
+							href="#"
+							id="navbarDropdown"
+							role="button"
+							data-bs-toggle="dropdown"
+							aria-expanded="false"
+						>
+						</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<li><a class="dropdown-item" href="#">profile</a></li>
+							<li><a onclick="confirmAlert()" class="dropdown-item" href="#">sign out</a></li>
+							<li><hr class="dropdown-divider" /></li>
+							<p id="role" class="dropdown-item" style="font-size: 11px; color: black"></p>
+						</ul>
+					</div>
+					<a id="logIn" href="./login.html" class="btn btn-primary" style="display: none">Login</a>
 				</div>
 			</div>
 		</nav>
@@ -63,7 +80,15 @@
 					<a class="nav-link" role="tab" data-toggle="tab" href="#tab-2">Upload course</a>
 				</li>
 				<li class="nav-item" role="presentation">
-					<a class="nav-link" role="tab" data-toggle="tab" href="#tab-3">Approval</a>
+					<a
+						onclick="buildCourse()"
+						id="manage-course"
+						class="nav-link"
+						role="tab"
+						data-toggle="tab"
+						href="#tab-3"
+						>Courses</a
+					>
 				</li>
 			</ul>
 			<div class="tab-content">
@@ -170,7 +195,9 @@
 					</div>
 				</div>
 				<div class="tab-pane" role="tabpanel" id="tab-3">
-					<p>Content for tab 2.</p>
+					<div class="container">
+						<div id="courses" class="row"></div>
+					</div>
 				</div>
 
 				<main class="main tab-pane col-md-6 col-sm-12" role="tabpanel" id="tab-2">
@@ -251,10 +278,15 @@
 			crossorigin="anonymous"
 		></script>
 		<script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
-		<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
 		<script src="./assets/javascript/allDatabase.js"></script>
 		<script src="./assets/javascript/admin.js"></script>
 		<script type="module" src="./assets/javascript/uploadCourse.js"></script>
+
+		<!-- cookie -->
+		<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+		<!-- auth -->
+		<script src="./assets/javascript/auth/studentAuth.js"></script>
+		<!-- alert -->
+		<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 	</body>
 </html>

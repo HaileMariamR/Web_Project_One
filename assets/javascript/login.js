@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				verifyUser = true;
 				console.log('hiiiiiiiiiiiiiiiiiiiiiiiii');
 				Cookies.set('user', `email=${users[index].email}&role=${users[index].role}`, { expires: 7 });
-				location = './student.html';
+				// location = './student.html';
 				break;
 			} else {
 				Swal.fire({
