@@ -1,162 +1,119 @@
+// // main Admin Activity
+// const ManageCourses = document.querySelector('.manageCoursebtn');
+// const approveCoursebtn = document.querySelector('.approveCoursebtn');
+// const manageUserbtn = document.querySelector('.manageUserbtn');
 
-// const clcikme = document.querySelector('.clickme');
-// clcikme.addEventListener('click' ,()=>{
-//     alert("Fresh start")
+const courseTitle = document.querySelector('#validationCustom01');
+const coruseImage = document.querySelector('#validationCustom02');
+const courseDuration = document.querySelector('#validationCustom03');
+const courseStream = document.querySelector('#validationCustom04');
+const coursePrice = document.querySelector('#validationCustom05');
+const courseDescription = document.querySelector('#validationCustom06');
+//dashboard
+const studentsNum = document.querySelector('#studentsNum');
+const instNum = document.querySelector('#instNum');
+const coursesNum = document.querySelector('#coursesNum');
+const activeUsers = document.querySelector('#activeUsers');
+//
+document.addEventListener('DOMContentLoaded', () => {
+	// submit.addEventListener('click', askforPermission);
+	// reset.addEventListener('click', resetValue);
+	getInst().then((data_) => {
+		instNum.innerHTML = data_.length;
+	});
+	getCourses().then((data_) => {
+		coursesNum.innerHTML = data_.length;
+	});
+	getUsers().then((data_) => {
+		studentsNum.innerHTML = data_.length;
+		$('#table_id').DataTable({
+			data: data_,
+			columns: [{ data: 'id' }, { data: 'fullname' }, { data: 'role' }, { data: 'email' }, { data: 'password.' }],
+		});
+	});
 
-// });
+	function uploadCourse() {
+		courseDatabase.courses.put({
+			courseName: courseTitle.value,
+			courseTitle: courseTitle.value,
+			courseDetail: courseTitle.value,
+			courseImage: courseTitle.value,
+		});
+	}
 
-const coursename = document.querySelector('#courseName');
-const coursetitle = document.querySelector('#coursetitle');
-const coursedetail = document.querySelector('#coursedetail');
-const courseimage = document.querySelector('#courseimage');
-const addcorusebtn = document.querySelector('#adminaddcourse');
+	function resetValue() {
+		courseTitle.value = '';
+		coruseImage.value = '';
+		courseDuration.value = '';
+		courseStream.value = '';
+		coursePrice.value = '';
+		courseDescription.value = '';
+	}
 
+	// Example starter JavaScript for disabling form submissions if there are invalid fields
+	(function () {
+		'use strict';
 
+		// Fetch all the forms we want to apply custom Bootstrap validation styles to
+		var forms = document.querySelectorAll('.needs-validation');
 
+		// Loop over them and prevent submission
+		Array.prototype.slice.call(forms).forEach(function (form) {
+			form.addEventListener(
+				'submit',
+				function (event) {
+					if (!form.checkValidity()) {
+						event.preventDefault();
+						event.stopPropagation();
+					} else {
+						event.preventDefault();
+						uploadCourse();
+						Swal.fire({
+							position: 'top-end',
+							icon: 'success',
+							title: 'Your course have been uploaded',
+							showConfirmButton: false,
+							timer: 1500,
+						});
+					}
 
+					form.classList.add('was-validated');
+				},
+				false
+			);
+		});
+	})();
+});
 
-document.addEventListener('DOMContentLoaded' , ()=>{
+async function getUsers() {
+	let users = await newdb.users.toArray();
+	return users;
+}
+async function getCourses() {
+	let courses = await courseDatabase.courses.toArray();
+	return courses;
+}
+async function getInst() {
+	let inst = await newdb.users.toArray();
+	return inst;
+}
 
-    addcorusebtn.addEventListener('click' , adminAddCourse)
+{
+	/* <div class="card coursediv col-md-12">
+                            <img src="${img}" class="courseimage card-img-top" alt="..." />
+                            <div class="card-body">
+                                <h5 style="font-size:15px;color:cyan" class="card-title coursename">Name</h5>
+                                
+                                <h2 coursetitle style="font-size:15px;color:black">${title}</h2> 
+                                
+                                <p coursedetail style="" class="card-text">
+                                ${detail}
+                                </p>
+                                <p>5⭐⭐⭐⭐⭐</p>
+                                <p style="color: brown">100 Students Enrolled</p>
+                                <a href="#" class="btn remove btn-danger"> remove Course</a>
 
-    function adminAddCourse(){
-        let cName = coursename.value ;
-        let cTitle = coursetitle.value;
-        let cDetail = coursedetail.value;
-        let cImage = courseimage.value;
-    
+                            </div>
 
-        courseDatabase.courses.put({
-            courseName : cName,
-            courseTitle:cTitle,
-            courseDetail : cDetail,
-            courseImage : cImage
-
-        })
-
-        coursename.value = '';
-        coursetitle.value = '';
-        coursedetail.value = '';
-        courseimage.value  = '';
-
-        alert('u added sucessfully!');
-        location = './admin.html'
-
-    }
-
-
-
-
-
-})
-
-
-
-
-
-// main Admin Activity 
-const ManageCourses = document.querySelector('.manageCoursebtn')
-const approveCoursebtn = document.querySelector('.approveCoursebtn')
-const manageUserbtn = document.querySelector('.manageUserbtn')
-
-const manageCourse = document.querySelector('.manageCourse')
-const approvecourse = document.querySelector('.approvecourse');
-const manageUsers  = document.querySelector('.manageUsers');
-
-
-
-document.addEventListener('DOMContentLoaded' , async ()=>{
-
-
-    ///////////////////////////////  About Displaying
-    approvecourse.style.display = 'none'
-    manageUsers.style.display = 'none'
-
-    ManageCourses.addEventListener('click' , displayfirst)
-    approveCoursebtn.addEventListener('click' , displaysecond)
-    manageUserbtn.addEventListener('click' , displaythird)
-
-
-    function displayfirst(){
-        manageCourse.style.display = 'block'
-        approvecourse.style.display = 'none'
-        manageUsers.style.display = 'none'
-
-    }
-    function displaysecond(){
-        manageCourse.style.display = 'none'
-        approvecourse.style.display = 'block'
-        manageUsers.style.display = 'none'
-
-    }
-
-    let allusers = await newdb.users.toArray();
-
-    function displaythird(){
-        manageCourse.style.display = 'none'
-        approvecourse.style.display = 'none'
-        manageUsers.style.display = 'block';
-        manageUsers.innerHTML = '';
-        
-        // <table style="width:100%">
-        //     <tr>
-        //         <th>Firstname</th>
-        //         <th>Lastname</th>
-        //         <th>Age</th>
-        //     </tr>
-        //     <tr>
-        //         <td>Jill</td>
-        //         <td>Smith</td>
-        //         <td>50</td>
-        //     </tr>
-        //     <tr>
-        //         <td>Eve</td>
-        //         <td>Jackson</td>
-        //         <td>94</td>
-        //     </tr>
-        //  </table>
-        let userinfotitle = document.createElement('h3');
-        userinfotitle.textContent = 'all Users'
-        let userTable = document.createElement('table');
-        userTable.style.width = '100%';
-        for (let index = 0; index < allusers.length; index++) {
-
-            let row = document.createElement('tr');
-            row.innerHTML = `
-                <th>${allusers[index].fulname}</th>
-                <th>${allusers[index].email}</th>
-                <th>${allusers[index].password}</th>
-    
-            `
-            userTable.appendChild(row)
-
-            
-        }
-        manageUsers.appendChild(userinfotitle)
-        manageUsers.appendChild(userTable)
-
-
-        // console.log(allusers);
-
-
-    }
-
-    ///////////////////////////////////////////////////////////////
-
-    // let allusers = await newdb.users.toArray();
-
-
-    
-
-    // console.log(allusers);
-
-
-
-
-})
-
-
-
-
-
-
+                        </div>  */
+}

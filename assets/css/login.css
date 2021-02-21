@@ -6,11 +6,13 @@
 }
 
 body {
-    background-color: #0d0f12;
+    background-color: #f1f6f9;
+    color: white;
+    overflow: hidden;
 }
 
 header {
-    color: white;
+    color: #394867;
     margin-top: 2%;
     text-align: center;
 }
@@ -22,7 +24,7 @@ header {
 }
 
 .form-box {
-    background-color: rgb(71, 71, 71);
+    background-color: #394867;
     height: 700px;
     width: 30%;
     padding: 5px;

@@ -1,7 +1,7 @@
 M.AutoInit();
 
-const logintempo = document.querySelector('#Login');
-const signup = document.querySelector('#Signup');
+// const logintempo = document.querySelector('#Login');
+// const signup = document.querySelector('#Signup');
 
 // signup.addEventListener('click' ,()=>{
 //     location = './signUpPage.html'
@@ -34,8 +34,8 @@ const enrollbtn = document.querySelector('.enroll');
 
 // });
 
-document.addEventListener('DOMContentLoaded', () => {
-	logintempo.addEventListener('click', () => {
-		location = './signupandlogin.html';
-	});
-});
+// document.addEventListener('DOMContentLoaded', () => {
+// 	logintempo.addEventListener('click', () => {
+// 		location = './signupandlogin.html';
+// 	});
+// });

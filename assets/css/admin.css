@@ -5,7 +5,7 @@
     /* border: 0.5px solid green; */
 }
 
-main {
+.main {
     margin: 5% auto;
 }
 
@@ -19,4 +19,8 @@ main {
 
 a {
     color: black;
+}
+
+.nav {
+    margin-bottom: 5%;
 }

@@ -22,19 +22,45 @@
 				</div>
 
 				<form action="" class="login input-group">
-					<input type="text" name="text" class="input-field" placeholder="user name" required />
-					<input type="password" name="password" class="input-field" placeholder="password" required />
-					<input type="checkbox" name="" class="check-box" /><span>Admin?</span>
-					<button type="submit" class="submit-btn">Login</button>
+					<input
+						id="lUserName"
+						type="text"
+						name="text"
+						class="input-field"
+						placeholder="user name"
+						required
+					/>
+					<input
+						id="lPassword"
+						type="password"
+						name="password"
+						class="input-field"
+						placeholder="password"
+						required
+					/>
+					<input id="" type="checkbox" name="" class="check-box" /><span>Admin?</span>
+					<button id="lSubmit" type="submit" class="submit-btn">Login</button>
 				</form>
 				<!--  -->
 				<!--  -->
 				<form action="" class="register input-group">
-					<input type="text" class="input-field" placeholder="user name" required />
-					<input type="email" name="email" class="input-field" placeholder="Email" required />
-					<input type="password" class="input-field" placeholder="password" required />
-					<!-- <input type="checkbox" name="" class="check-box" /><span></span> -->
-					<button type="submit" class="submit-btn">Sign Up</button>
+					<input id="sUserName" type="text" class="input-field" placeholder="user name" required />
+					<input id="email" type="email" name="email" class="input-field" placeholder="Email" required />
+					<input id="sPassword" type="password" class="input-field" placeholder="password" required />
+					<input
+						id="sVPassword"
+						type="password"
+						class="input-field"
+						placeholder="confirm password"
+						required
+					/>
+					<select id="sRole" required>
+						<option selected disabled value="">Role...</option>
+						<option value="student">Student</option>
+						<option value="instructor">Instructor</option>
+						<option value="admin">Adminstrator</option>
+					</select>
+					<button id="sSubmit" type="submit" class="submit-btn">Sign Up</button>
 				</form>
 			</div>
 		</div>
@@ -55,6 +81,9 @@
 				z.style.left = '51%';
 			}
 		</script>
+
+		<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+		<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 		<script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
 		<script src="./assets/javascript/allDatabase.js"></script>
 		<script src="./assets/javascript/login.js"></script>

@@ -1,133 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="./assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="./assets/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+		/>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+			crossorigin="anonymous"
+		/>
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css" />
 
-</head>
-<body>
-    
+		<link rel="stylesheet" href="./assets/css/admin.css" />
 
+		<title>Adminstrator</title>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">YONDAH</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="#">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Link</a>
+						</li>
+					</ul>
+					<a href="./login.html" class="btn btn-primary">Login</a>
+				</div>
+			</div>
+		</nav>
 
+		<div>
+			<ul class="nav nav-tabs" role="tablist">
+				<li class="nav-item" role="presentation">
+					<a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1">Dashboard</a>
+				</li>
+				<li class="nav-item" role="presentation">
+					<a class="nav-link" role="tab" data-toggle="tab" href="#tab-2">Upload course</a>
+				</li>
+				<li class="nav-item" role="presentation">
+					<a class="nav-link" role="tab" data-toggle="tab" href="#tab-3">Approval</a>
+				</li>
+			</ul>
+			<div class="tab-content">
+				<div class="tab-pane active" role="tabpanel" id="tab-1">
+					<div class="container">
+						<div class="d-sm-flex justify-content-between align-items-center mb-4">
+							<h3 class="text-dark mb-0">Dashboard</h3>
+						</div>
+						<div class="row">
+							<div class="col-md-6 col-xl-3 mb-4">
+								<div class="card shadow border-left-primary py-2">
+									<div class="card-body">
+										<div class="row align-items-center no-gutters">
+											<div class="col mr-2">
+												<div class="text-uppercase text-primary font-weight-bold text-xs mb-1">
+													<span>NUMBER OF STUDENTS</span>
+												</div>
+												<div class="text-dark font-weight-bold h5 mb-0">
+													<span id="studentsNum">0</span>
+												</div>
+											</div>
+											<div class="col-auto">
+												<i class="fa fa-user fa-2x text-gray-300"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 col-xl-3 mb-4">
+								<div class="card shadow border-left-success py-2">
+									<div class="card-body">
+										<div class="row align-items-center no-gutters">
+											<div class="col mr-2">
+												<div class="text-uppercase text-success font-weight-bold text-xs mb-1">
+													<span>NUMBER OF INSTRUCTORS</span>
+												</div>
+												<div class="text-dark font-weight-bold h5 mb-0">
+													<span id="instNum">0</span>
+												</div>
+											</div>
+											<div class="col-auto">
+												<i class="fa fa-user fa-2x text-gray-300"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 col-xl-3 mb-4">
+								<div class="card shadow border-left-info py-2">
+									<div class="card-body">
+										<div class="row align-items-center no-gutters">
+											<div class="col mr-2">
+												<div class="text-uppercase text-success font-weight-bold text-xs mb-1">
+													<span>NUMBER OF COURSES</span>
+												</div>
+												<div class="text-dark font-weight-bold h5 mb-0">
+													<span id="coursesNum">0</span>
+												</div>
+											</div>
+											<div class="col-auto">
+												<i class="fa fa-book fa-2x text-gray-300"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 col-xl-3 mb-4">
+								<div class="card shadow border-left-warning py-2">
+									<div class="card-body">
+										<div class="row align-items-center no-gutters">
+											<div class="col mr-2">
+												<div class="text-uppercase text-warning font-weight-bold text-xs mb-1">
+													<span>DAILY ACTIVE USERS</span>
+												</div>
+												<div class="text-dark font-weight-bold h5 mb-0">
+													<span id="activeUsers">0</span>
+												</div>
+											</div>
+											<div class="col-auto">
+												<i class="fa fa-users fa-2x text-gray-300"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 
-    <div class="admin_header">
+					<div class="container main">
+						<h3 class="text-dark mb-3">Users table</h3>
 
+						<table class="display" width="100%" id="table_id">
+							<thead>
+								<tr>
+									<th>Id</th>
+									<th>Name</th>
+									<th>Role</th>
+									<th>Email</th>
+									<th>Password</th>
+								</tr>
+							</thead>
+							<tbody id="data"></tbody>
+						</table>
+					</div>
+				</div>
+				<div class="tab-pane" role="tabpanel" id="tab-3">
+					<p>Content for tab 2.</p>
+				</div>
 
-        <h1 class="admin_title"> YONDAH ADMINSTRATION   <a href="./index.html" style="margin-left: 400px;margin-top: 20px; float: right;color: blanchedalmond;" class="btn">SignOut</a></h1>
+				<main class="main tab-pane col-md-6 col-sm-12" role="tabpanel" id="tab-2">
+					<div class="container head">
+						<h1>Upload Course</h1>
+					</div>
+					<div class="container main">
+						<form class="row g-3 needs-validation" novalidate>
+							<div class="col-md-4">
+								<label for="validationCustom01" class="form-label">Course title</label>
+								<input type="text" class="form-control" id="validationCustom01" required />
+								<div class="invalid-feedback">required</div>
+							</div>
+							<div class="col-md-4">
+								<label for="validationCustom02" class="form-label">Course img</label>
+								<input type="text" class="form-control" id="validationCustom02" required />
+								<div class="invalid-feedback">required</div>
+							</div>
+							<div class="col-md-4">
+								<label for="validationCustom03" class="form-label">Course Duration</label>
+								<input type="text" class="form-control" id="validationCustom03" required />
+								<div class="invalid-feedback">Please provide a valid number.</div>
+							</div>
 
-    </div>
+							<div class="col-md-6">
+								<label for="validationCustom04" class="form-label">Stream</label>
+								<select class="form-select" id="validationCustom04" required>
+									<option selected disabled value="">Choose...</option>
+									<option>IT</option>
+									<option>Software Engineering</option>
+									<!-- <option>...</option> -->
+								</select>
+								<div class="invalid-feedback">Please select a stream.</div>
+							</div>
+							<div class="col-md-6">
+								<label for="validationCustom05" class="form-label">Price</label>
+								<input type="text" class="form-control" id="validationCustom05" required />
+								<div class="invalid-feedback">Please provide a valid number.</div>
+							</div>
+							<div class="col-md-12">
+								<label for="validationCustom03" class="form-label">Description</label>
+								<textarea
+									class="form-control"
+									name=""
+									id="validationCustom06"
+									cols="30"
+									rows="5"
+									required
+								></textarea>
+								<div class="invalid-feedback">
+									Please provide a little description about the course.
+								</div>
+							</div>
 
-    <div class="main row">
+							<div class="col-12">
+								<button class="btn btn-primary" type="submit">Upload course</button>
+							</div>
+						</form>
+					</div>
+				</main>
+			</div>
+		</div>
 
-            <div class="leftContainer col-md-6" style="margin-top: 5rem;">
-                    
+		<script
+			src="https://code.jquery.com/jquery-3.5.1.min.js"
+			integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+			crossorigin="anonymous"
+		></script>
+		<script
+			type="text/javascript"
+			charset="utf8"
+			src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"
+		></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+			crossorigin="anonymous"
+		></script>
+		<script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+		<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
-                    <button  class="manageCoursebtn btn">Manage Courses</button><br>
-                    <button class="approveCoursebtn btn">Approve Course</button><br>
-                    <button class="manageUserbtn btn">Manage User</button>
-
-            </div>
-            <div class="rightContainer col-md-6"> 
-
-                <!-- Manage Course Start -->
-
-                <div class="manageCourse" style=" width:30rem;">
-                    <div style="margin-top: 40px;">
-                        <h3>Add Course</h3>
-                        <form action="">
-                            courseName : <input type="text" name="courseName" id="courseName"><br>
-                            courseTitle : <input type="text" name="coursetitle" id="coursetitle"><br>
-                            coursedetail: <input type="text" name="coursedetail" id="coursedetail"> <br>
-                            courseimage : <input type="text" name="courseimage" id="courseimage"><br>
-                            <br><br>
-                            <input class="btn btn-outline-primary" type="submit" id="adminaddcourse" value="Add Course">
-                        </form>
-                    </div>
-                    <br><br>
-
-                    <div class="coursePlaceholder" style="margin-top: 40px;">
-                        <h3>All courses</h3>
-                        <!-- <div class="card coursediv col-md-12">
-                            <img src="${img}" class="courseimage card-img-top" alt="..." />
-                            <div class="card-body">
-                                <h5 style="font-size:15px;color:cyan" class="card-title coursename">Name</h5>
-                                
-                                <h2 coursetitle style="font-size:15px;color:black">${title}</h2> 
-                                
-                                <p coursedetail style="" class="card-text">
-                                ${detail}
-                                </p>
-                                <p>5⭐⭐⭐⭐⭐</p>
-                                <p style="color: brown">100 Students Enrolled</p>
-                                <a href="#" class="btn remove btn-danger"> remove Course</a>
-
-                            </div>
-
-                        </div> -->
-                    </div>
-                </div>
-                                    
-                <!-- Manage course End -->
-
-
-                <!-- Approve course start -->
-                    <div class="approvecourse" style="height: ; background-color:">
-                        Approve Info
-                    </div>
-
-
-                <!-- Approve course End  -->
-
-                <!-- Manege user start  -->
-                        <div class="manageUsers" >
-
-                            <h3>All Students</h3>
-                                
-                        </div>
-
-
-                <!-- Manage user End -->
-                
-
-                   
-            </div>
-
-
-    </div>
-
-    
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-      
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="./assets/javascript/owl.carousel.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
-
-    <script src="./assets/javascript/allDatabase.js"></script>
-    <script src="./assets/javascript/admin.js"></script>
-
-</body>
+		<script src="./assets/javascript/allDatabase.js"></script>
+		<script src="./assets/javascript/admin.js"></script>
+		<script type="module" src="./assets/javascript/uploadCourse.js"></script>
+	</body>
 </html>
