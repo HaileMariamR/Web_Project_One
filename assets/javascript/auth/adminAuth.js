@@ -13,8 +13,13 @@ if (sess) {
 		var arg = i.split('=');
 		z.push(arg);
 	}
+	const r = z[1][1];
 	email.textContent = z[0][1];
 	role.textContent = z[1][1];
+
+	if (r !== 'student') {
+		location = './unauthorized.html';
+	}
 } else {
 	logIn.style.display = '';
 	profile.style.display = 'none';

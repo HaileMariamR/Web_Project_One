@@ -69,4 +69,21 @@ document.addEventListener('DOMContentLoaded', () => {
 		lUserName.value = '';
 		lPassword.value = '';
 	}
+
+	const urlParams = new URLSearchParams(window.location.search);
+	const page = urlParams.get('login');
+
+	if (page == 0) {
+		Swal.fire({
+			title: 'Not Authorized!',
+			html: 'Please Login as an Instructor first.',
+			timer: 1500,
+			position: 'bottom-end',
+			icon: 'info',
+			timerProgressBar: true,
+			didOpen: () => {
+				Swal.showLoading();
+			},
+		});
+	}
 });

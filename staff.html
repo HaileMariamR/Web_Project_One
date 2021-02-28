@@ -39,8 +39,24 @@
 							<a class="nav-link" href="#">Link</a>
 						</li>
 					</ul>
-					<!-- profile -->
-					<div class="d-flex"><p>Yonatan Merkebu</p></div>
+					<div id="profile" class="nav-item dropdown">
+						<a
+							class="nav-link dropdown-toggle"
+							href="#"
+							id="navbarDropdown"
+							role="button"
+							data-bs-toggle="dropdown"
+							aria-expanded="false"
+						>
+						</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<li><a class="dropdown-item" href="#">profile</a></li>
+							<li><a onclick="confirmAlert()" class="dropdown-item" href="#">sign out</a></li>
+							<li><hr class="dropdown-divider" /></li>
+							<p id="role" class="dropdown-item" style="font-size: 11px; color: black"></p>
+						</ul>
+					</div>
+					<a id="logIn" href="./login.html" class="btn btn-primary" style="display: none">Login</a>
 				</div>
 			</div>
 		</nav>
@@ -142,7 +158,12 @@
 		<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 		<script type="module" src="./assets/javascript/uploadCourse.js"></script>
 		<script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
-		<script src="./assets/javascript/allDatabase.js"></script>
-		<script></script>
+		<script src="./assets/javascript/courseDb/allDatabase.js"></script>
+		<!-- swal -->
+		<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+		<!-- cookie -->
+		<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+		<!-- Auth -->
+		<script src="assets/javascript/auth/instructorAuth.js"></script>
 	</body>
 </html>
