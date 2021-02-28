@@ -8,6 +8,18 @@ const coursePrice = document.querySelector('#validationCustom05');
 const courseDescription = document.querySelector('#validationCustom06');
 
 document.addEventListener('DOMContentLoaded', () => {
+	let sess = Cookies.get('user');
+	var name = '';
+	if (sess) {
+		var z = [];
+		var res = sess.split('&');
+		for (let i of res) {
+			var arg = i.split('=');
+			z.push(arg);
+		}
+		name = z[2][1];
+	}
+
 	function askforPermission() {
 		let allrequiredinformation = {
 			courseTitle: courseTitle.value,
@@ -16,6 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
 			courseDuration: courseDuration.value,
 			courseStream: courseStream.value,
 			coursePrice: coursePrice.value,
+			enrolled: [],
+			instructorName: name,
 		};
 
 		newCourse.course.put(allrequiredinformation);

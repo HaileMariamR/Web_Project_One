@@ -21,6 +21,9 @@ body {
 
 }
 
+.enroll {
+    border: none;
+}
 
 .parallax-container {
     background: #000;

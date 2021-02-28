@@ -8,7 +8,7 @@ newdb.open();
 // student's course
 let studentCourse = new Dexie('studentCourseDatabase');
 studentCourse.version(1).stores({
-	courses: '++id , enrolledcourseName ,enrolledcourseTitle, enrolledcourseDetail , enrolledcourseImage',
+	courses: 'name , courseId',
 });
 studentCourse.open();
 
@@ -16,6 +16,6 @@ studentCourse.open();
 let newCourse = new Dexie('newCourse');
 newCourse.version(1).stores({
 	course:
-		'++id, courseTitle, courseDescription, courseImage, courseDuration, courseStream, coursePrice, courseRating',
+		'++id, courseTitle, courseDescription, courseImage, courseDuration, courseStream, coursePrice, courseRating, enrolled, instructorName',
 });
 newCourse.open();

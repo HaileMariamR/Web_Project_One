@@ -93,4 +93,15 @@ document.addEventListener('DOMContentLoaded', () => {
 			},
 		});
 	}
+	if (page == 1) {
+		Swal.fire({
+			html: 'Please Login as Student first.',
+			timer: 1500,
+			position: 'bottom-end',
+			timerProgressBar: true,
+			didOpen: () => {
+				Swal.showLoading();
+			},
+		});
+	}
 });

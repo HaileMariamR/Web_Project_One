@@ -41,9 +41,11 @@ const teach = document.querySelector('#teach');
 const info = document.querySelector('#stud');
 
 const courses = document.querySelector('#courses');
+var enrollBtn = '';
 
 document.addEventListener('DOMContentLoaded', () => {
 	buildCourse();
+	enrollBtn = document.getElementsByClassName('enroll');
 });
 
 async function getCourses() {
@@ -64,6 +66,8 @@ function buildCourse() {
 				courseStream,
 				coursePrice,
 				courseRating,
+				instructorName,
+				enrolled,
 			} = data[index];
 
 			let oneCourse = document.createElement('div');
@@ -77,8 +81,9 @@ function buildCourse() {
 					${courseDescription}
 					</p>
 					<p>${courseRating}</p>
+					<p>Author: ${instructorName}</p>
 					<p style="color: brown">${courseDuration} Students Enrolled</p>
-					<a id="enroll" class="${id} btn btn-danger">Enroll</a>
+					<a class="enroll btn btn-danger" onclick="enroll(${id}, ${index})">Enroll</a>
 				</div>
 			</div>`;
 
@@ -86,4 +91,48 @@ function buildCourse() {
 		}
 	});
 }
-function checkIfEnrolled() {}
+
+async function enroll(id, index) {
+	var namee = '';
+	let sess = Cookies.get('user');
+	if (sess) {
+		var z = [];
+		var res = sess.split('&');
+		for (let i of res) {
+			var arg = i.split('=');
+			z.push(arg);
+		}
+		namee = z[2][1];
+		if (z[1][1] == 'student') {
+			const c = await getCourses();
+
+			studentCourse.courses.put({
+				name: index,
+				courseReference: id,
+			});
+			enrollBtn[index].style.backgroundColor = 'green';
+			enrollBtn[index].innerHTML = 'Enrolled';
+
+			let course = c[index];
+
+			course.enrolled.push(namee);
+			newCourse.course.put(course);
+
+			// studentCourse.courses
+			// 	.where('name')
+			// 	.equals(index)
+			// 	.delete()
+			// 	.then(() => {
+			// 		enrollBtn[index].style.backgroundColor = 'red';
+			// 		enrollBtn[index].innerHTML = 'Enroll';
+			// 	})
+			// 	.catch(() => {
+			// 		console.log('sada');
+			// 	});
+		} else {
+			location = './login.html?login=1';
+		}
+	} else {
+		location = './login.html?login=1';
+	}
+}
