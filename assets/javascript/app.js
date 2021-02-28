@@ -38,36 +38,13 @@
 // 	});
 // });
 const teach = document.querySelector('#teach');
+const info = document.querySelector('#stud');
 
 const courses = document.querySelector('#courses');
 
 document.addEventListener('DOMContentLoaded', () => {
 	buildCourse();
 });
-
-function checkAuth() {
-	let sess = Cookies.get('user');
-	if (sess) {
-		var z = [];
-		var res = sess.split('&');
-		for (let i of res) {
-			var arg = i.split('=');
-			z.push(arg);
-		}
-		// let email = z[0][1];
-		let role = z[1][1];
-
-		if (role == 'student') {
-			location = './student.html';
-		} else if (role == 'instructor') {
-			location = './staff.html';
-		} else if (role == 'admin') {
-			location = './admin.html';
-		}
-	} else {
-		location = './login.html?login=0';
-	}
-}
 
 async function getCourses() {
 	let courses = await newCourse.course.toArray();
@@ -78,25 +55,35 @@ function buildCourse() {
 	courses.innerHTML = '';
 	getCourses().then((data) => {
 		for (let index = 0; index < data.length; index++) {
-			// let coursename = data[index].courseName;
-			let coursetitle = data[index].courseTitle;
-			// let coursedetail = data[index].courseDetail;
-			// let courseimage = data[index].courseImage;
+			const {
+				id,
+				courseTitle,
+				courseImage,
+				courseDescription,
+				courseDuration,
+				courseStream,
+				coursePrice,
+				courseRating,
+			} = data[index];
 
 			let oneCourse = document.createElement('div');
-			oneCourse.classList.add('card');
-			oneCourse.style.width = '18rem';
-			oneCourse.style.margin = '1%';
 			oneCourse.innerHTML = `
-  				<img src="" alt="courseImg">
-  				<div class="card-body">
-    				<h5 class="card-title">${coursetitle}</h5>
-    				<p class="card-text">${coursetitle}</p>
-    				<a href="#" class="btn btn-primary">Go somewhere</a>
-  				
+
+			<div class="card" style="width: 25rem">
+				<img src="${courseImage}" class="card-img-top" alt="..." />
+				<div class="card-body">
+					<h5 class="card-title">${courseTitle}</h5>
+					<p class="card-text">
+					${courseDescription}
+					</p>
+					<p>${courseRating}</p>
+					<p style="color: brown">${courseDuration} Students Enrolled</p>
+					<a id="enroll" class="${id} btn btn-danger">Enroll</a>
+				</div>
 			</div>`;
 
 			courses.appendChild(oneCourse);
 		}
 	});
 }
+function checkIfEnrolled() {}

@@ -1,7 +1,5 @@
-
-
-$(document).ready(function(){
-  $('.tabs').tabs();
+$(document).ready(function () {
+	$('.tabs').tabs();
 });
 
 // enroll.addEventListener('click' ,()=>{
@@ -28,14 +26,10 @@ $(document).ready(function(){
 //     divelement.appendChild(aone)
 //     divelement.appendChild(athree)
 //     enrolledlist.appendChild(divelement);
-  
 
 // }
 
 // function removeCourse(){
-
-
-
 
 // }
 // function takequiz(){
@@ -44,57 +38,48 @@ $(document).ready(function(){
 //   h2.textContent = cardtitile.textContent;
 //   let atwo = document.createElement('button');
 //   atwo.textContent = 'take a quiz';
- 
+
 //   divtwo.appendChild(h2);
 //   divtwo.appendChild(atwo);
 
 //   enrolledlistforquiz.appendChild(divtwo);
 
-
 // }
 
-const allCoursePlaceholder = document.querySelector('.allCoursePlaceholder')
+const allCoursePlaceholder = document.querySelector('.allCoursePlaceholder');
 const search = document.querySelector('#search');
 
 allCourseInformation = [
+	{
+		courseName: 'Javascript',
+		courseTitle: 'The Complete Javascript crush Course',
+		courseDetail:
+			'The modern JavaScript course for everyone! Master JavaScript with projects, challenges and theory. Many courses in one',
+		courseImage: 'https://i.picsum.photos/id/0/200/300.jpg?hmac=0pq7Zy79Vy4K-8w1qAMo1ppYmPvl-7lvwSx-LyZ7vNY',
+	},
+];
 
-  { 
-    courseName:"Javascript",
-    courseTitle:"The Complete Javascript crush Course",
-    courseDetail:'The modern JavaScript course for everyone! Master JavaScript with projects, challenges and theory. Many courses in one',
-    courseImage:'https://i.picsum.photos/id/0/200/300.jpg?hmac=0pq7Zy79Vy4K-8w1qAMo1ppYmPvl-7lvwSx-LyZ7vNY'
+document.addEventListener('DOMContentLoaded', async () => {
+	// courseDatabase.courses.bulkAdd(allCourseInformation);
 
-    }
+	search.addEventListener('keyup', searchCourse);
 
-  ]
+	let getAllCourseInfo = await newCourse.course.toArray();
+	allCourseInformation.innerHTML = '';
 
-document.addEventListener('DOMContentLoaded' , async()=>{
+	for (let index = 0; index < getAllCourseInfo.length; index++) {
+		coursename = getAllCourseInfo[index].courseName;
+		coursetitle = getAllCourseInfo[index].courseTitle;
+		coursedetail = getAllCourseInfo[index].courseDetail;
+		courseimage = getAllCourseInfo[index].courseImage;
 
-    // courseDatabase.courses.bulkAdd(allCourseInformation);
+		let oneCourse = document.createElement('div');
+		oneCourse.className = 'card coursediv col-md-4';
+		oneCourse.style.width = '25rem';
+		oneCourse.style.height = '45rem';
+		oneCourse.style.marginLeft = '2rem';
 
-
-    search.addEventListener('keyup' , searchCourse);
-
-
-    let getAllCourseInfo = await courseDatabase.courses.toArray();
-    allCourseInformation.innerHTML = '';
-
-    
-    for (let index = 0; index < getAllCourseInfo.length; index++) {
-
-        coursename = getAllCourseInfo[index].courseName;
-        coursetitle = getAllCourseInfo[index].courseTitle;
-        coursedetail = getAllCourseInfo[index].courseDetail;
-        courseimage = getAllCourseInfo[index].courseImage;
-
-
-        let oneCourse = document.createElement('div');
-        oneCourse.className = 'card coursediv col-md-4' ;
-        oneCourse.style.width = '25rem';
-        oneCourse.style.height = '45rem';
-        oneCourse.style.marginLeft = '2rem'
-
-        oneCourse.innerHTML = `
+		oneCourse.innerHTML = `
                 <img src="${courseimage}" class="courseimage card-img-top" alt="..." />
                 <div class="card-body">
                   <h5 style="font-size:15px;color:cyan" class="card-title coursename">${coursename}</h5>
@@ -108,118 +93,73 @@ document.addEventListener('DOMContentLoaded' , async()=>{
                   <p style="color: brown">100 Students Enrolled</p>
                   <a href="#" class="btn enroll btn-danger">Enroll</a>
                 </div>
-        `
-        allCoursePlaceholder.appendChild(oneCourse)
+        `;
+		allCoursePlaceholder.appendChild(oneCourse);
+	}
 
+	//// search courses
 
+	function searchCourse() {
+		let inputValue = search.value.toString().toUpperCase();
+		let coursename = document.querySelectorAll('.coursename');
+		for (let index = 0; index < coursename.length; index++) {
+			let cNameValue = coursename[index].textContent.toString().toUpperCase();
 
+			if (cNameValue.indexOf(inputValue) > -1) {
+				coursename[index].parentElement.parentElement.style.display = 'block';
+			} else {
+				coursename[index].parentElement.parentElement.style.display = 'none';
+			}
+		}
+	}
 
+	///// Course Enrollment
 
-    }
+	let enrollbtn = document.querySelectorAll('.enroll');
+	// enrollbtn.addEventListener('click' ,courseEnrollment)
+	for (let index = 0; index < enrollbtn.length; index++) {
+		enrollbtn[index].addEventListener('click', courseEnrollment);
+	}
 
+	async function courseEnrollment(e) {
+		let enrolledCourseInfo = {
+			enrolledcourseName: '',
+			enrolledcourseTitle: '',
+			enrolledcourseDetail: '',
+			enrolledcourseImage: '',
+		};
 
-    //// search courses 
+		let enrollParentElement = e.target.parentElement;
 
-    function searchCourse(){
+		let courseinfo = enrollParentElement.children;
 
-      let inputValue = search.value.toString().toUpperCase();
-      let coursename = document.querySelectorAll('.coursename');
-      for (let index = 0; index < coursename.length; index++) {
-          let cNameValue = coursename[index].textContent.toString().toUpperCase();
+		enrolledCourseInfo.enrolledcourseName = courseinfo[0].textContent;
+		enrolledCourseInfo.enrolledcourseTitle = courseinfo[1].textContent;
+		enrolledCourseInfo.enrolledcourseDetail = courseinfo[2].textContent;
+		enrolledCourseInfo.enrolledcourseImage = enrollParentElement.parentElement.children[0].src;
 
-          if((cNameValue.indexOf(inputValue)> -1)){
-              coursename[index].parentElement.parentElement.style.display = 'block';
-          }
-          else{
-            coursename[index].parentElement.parentElement.style.display = 'none';
+		studentCourse.courses.put(enrolledCourseInfo);
 
-          }
-        
-      }
+		location = './takingcourse.html';
+	}
 
+	//// for enrollment
 
+	const enrolledList = document.querySelector('.enrolledList');
 
-    }
+	let getAllEnrolledCourse = await studentCourse.courses.toArray();
+	// console.log(getAllEnrolledCourse);
 
+	for (let index = 0; index < getAllEnrolledCourse.length; index++) {
+		let img = getAllEnrolledCourse[index].enrolledcourseImage;
+		let name = getAllEnrolledCourse[index].enrolledcourseName;
+		let title = getAllEnrolledCourse[index].enrolledcourseTitle;
+		let detail = getAllEnrolledCourse[index].enrolledcourseDetail;
 
+		let newEnrolledCourseElement = document.createElement('div');
+		newEnrolledCourseElement.className = 'card coursediv col-md-12';
 
-    ///// Course Enrollment 
-
-      let enrollbtn = document.querySelectorAll('.enroll');
-      // enrollbtn.addEventListener('click' ,courseEnrollment)
-      for (let index = 0; index < enrollbtn.length; index++) {
-
-            enrollbtn[index].addEventListener('click' , courseEnrollment)
-        
-      }
-
-
-
-
-
-    async  function courseEnrollment(e){
-
-        let enrolledCourseInfo = {
-
-          enrolledcourseName:'',
-          enrolledcourseTitle:'',
-          enrolledcourseDetail:'',
-          enrolledcourseImage:''
-
-
-        }
-
-
-        let enrollParentElement = e.target.parentElement;
-        
-
-        let courseinfo = enrollParentElement.children;
-
-        enrolledCourseInfo.enrolledcourseName = courseinfo[0].textContent;
-        enrolledCourseInfo.enrolledcourseTitle = courseinfo[1].textContent;
-        enrolledCourseInfo.enrolledcourseDetail = courseinfo[2].textContent;
-        enrolledCourseInfo.enrolledcourseImage = enrollParentElement.parentElement.children[0].src;
-
-        studentCourse.courses.put(enrolledCourseInfo)
-
-
-
-        location = './takingcourse.html'
-
-       
-        
-
-      }
-
-
-
-     
-
-
-      //// for enrollment
-         
-
-
-
-
-    
-      const enrolledList = document.querySelector('.enrolledList')
-
-      
-      let getAllEnrolledCourse = await studentCourse.courses.toArray();
-      // console.log(getAllEnrolledCourse);
-
-      for (let index = 0; index < getAllEnrolledCourse.length; index++) {
-
-          let img = getAllEnrolledCourse[index].enrolledcourseImage;
-          let name = getAllEnrolledCourse[index].enrolledcourseName;
-          let title = getAllEnrolledCourse[index].enrolledcourseTitle;
-          let detail = getAllEnrolledCourse[index].enrolledcourseDetail;
-
-          let newEnrolledCourseElement = document.createElement('div');
-          newEnrolledCourseElement.className ='card coursediv col-md-12'
-
-          newEnrolledCourseElement.innerHTML = ` <img src="${img}" class="courseimage card-img-top" alt="..." />
+		newEnrolledCourseElement.innerHTML = ` <img src="${img}" class="courseimage card-img-top" alt="..." />
           <div class="card-body">
             <h5 style="font-size:15px;color:cyan" class="card-title coursename">${name}</h5>
             
@@ -236,103 +176,88 @@ document.addEventListener('DOMContentLoaded' , async()=>{
 
 
           </div>
-        `
-        enrolledList.appendChild(newEnrolledCourseElement);
-      }
+        `;
+		enrolledList.appendChild(newEnrolledCourseElement);
+	}
 
-      
-        //// remove course
+	//// remove course
 
+	let removecoursebtn = document.querySelectorAll('.remove');
+	for (let index = 0; index < removecoursebtn.length; index++) {
+		removecoursebtn[index].addEventListener('click', courseRemove);
+	}
 
+	function courseRemove(e) {
+		e.target.parentElement.parentElement.style.display = 'none';
+		let removedCourseName = e.target.parentElement.children[0].textContent;
+		// console.log(removedCourseName );
+		studentCourse.courses.where('enrolledcourseName').equals(removedCourseName).delete();
+		// studentCourse.courses.where('enrolledcourseName').equals('').delete();
+		// studentCourse.courses.delete(1);
+	}
 
-      let removecoursebtn = document.querySelectorAll('.remove');
-      for (let index = 0; index < removecoursebtn.length; index++) {
-          removecoursebtn[index].addEventListener('click' , courseRemove)        
-      }
-    
-       function courseRemove(e){
+	// take quiz
+	const enrolledlistforquiz = document.querySelector('.enrolledlistforquiz');
+	const takequiz = document.querySelectorAll('.takequiz');
+	for (let index = 0; index < takequiz.length; index++) {
+		takequiz[index].addEventListener('click', takeQuiz);
+	}
 
-          e.target.parentElement.parentElement.style.display = 'none';
-          let removedCourseName = e.target.parentElement.children[0].textContent;
-          // console.log(removedCourseName );
-          studentCourse.courses.where('enrolledcourseName').equals(removedCourseName).delete();
-          // studentCourse.courses.where('enrolledcourseName').equals('').delete();
-          // studentCourse.courses.delete(1);
-          
+	let listOfQuestions = [
+		{
+			Question: ' A function definition expression can be called as_______________',
 
-      }
+			a: 'Function prototype',
+			b: ' Function literal',
+			c: 'Function calling',
+			d: 'Function declaration',
+			answer: 'b',
+		},
+		{
+			Question: 'The expression of calling (or executing) a function or method in JavaScript is called ________',
 
-      // take quiz  
-      const enrolledlistforquiz = document.querySelector('.enrolledlistforquiz');
-      const takequiz = document.querySelectorAll('.takequiz');
-      for (let index = 0; index < takequiz.length; index++) {
-        takequiz[index].addEventListener('click' , takeQuiz); 
-      }
+			a: 'Primary expression',
+			b: 'Functional expression',
+			c: 'Invocation expression',
+			d: 'Property Access Expression',
+			answer: 'c',
+		},
+		{
+			Question: ' Which of the operator is used to test if a particular property exists or not?',
 
-      let listOfQuestions = [
+			a: 'in',
 
-        {
-            Question : " A function definition expression can be called as_______________",
+			b: 'exist',
 
-            a:'Function prototype',
-            b:' Function literal' ,
-            c:'Function calling' ,
-            d:'Function declaration', 
-            answer : 'b'
+			c: 'within',
+			d: ' exists',
+			answer: 'a',
+		},
+		{
+			Question: 'Among the following, which one is a ternary operator?',
 
+			a: '+',
 
-        },
-        {
+			b: ':',
 
-          Question : "The expression of calling (or executing) a function or method in JavaScript is called ________",
+			c: '-',
+			d: '?',
+			answer: 'd',
+		},
+		{
+			Question: ' The property of a primary expression is ____________',
+			a: ' stand-alone expressions',
+			b: 'basic expressions containing all necessary functions',
+			c: ' contains variable references alone',
+			d: 'contains only keywords',
+			answer: 'a',
+		},
+	];
 
-          a:'Primary expression',
-          b:'Functional expression' ,
-          c:'Invocation expression' ,
-          d:'Property Access Expression',
-          answer:'c'
-        },
-        {
-          Question : " Which of the operator is used to test if a particular property exists or not?",
-
-          a:'in',
-
-          b:'exist' ,
-
-          c:'within' ,
-          d:' exists',
-          answer:'a'
-
-        },
-        {
-          Question : "Among the following, which one is a ternary operator?",
-
-          a:'+',
-
-          b:':' ,
-
-          c:'-' ,
-          d:'?' ,
-          answer:'d'
-        },
-        {
-            Question :' The property of a primary expression is ____________',
-            a:' stand-alone expressions',
-            b:'basic expressions containing all necessary functions',
-            c:' contains variable references alone',
-            d:'contains only keywords',
-            answer:'a'
-
-        }
-
-
-      ]
-
-      function takeQuiz(e){
-
-          for (let index = 0; index < listOfQuestions.length; index++) {
-              let questionDiv = document.createElement('div');
-              questionDiv.innerHTML = `
+	function takeQuiz(e) {
+		for (let index = 0; index < listOfQuestions.length; index++) {
+			let questionDiv = document.createElement('div');
+			questionDiv.innerHTML = `
 
               
 
@@ -346,60 +271,27 @@ document.addEventListener('DOMContentLoaded' , async()=>{
 
 
               
-              `
-              let viewAnswer = document.createElement('a');
-              viewAnswer.className = 'btn viewAnswer'
-              viewAnswer.textContent   = 'View Answer'
-              questionDiv.appendChild(viewAnswer)
-              viewAnswer.addEventListener('click' , ()=>{
-                alert(`Answer : ${listOfQuestions[index].answer}`)
-              })
-          
-              enrolledlistforquiz.appendChild(questionDiv);
+              `;
+			let viewAnswer = document.createElement('a');
+			viewAnswer.className = 'btn viewAnswer';
+			viewAnswer.textContent = 'View Answer';
+			questionDiv.appendChild(viewAnswer);
+			viewAnswer.addEventListener('click', () => {
+				alert(`Answer : ${listOfQuestions[index].answer}`);
+			});
 
-            
-          }
+			enrolledlistforquiz.appendChild(questionDiv);
+		}
 
+		let submitAnswerbtn = document.createElement('a');
+		submitAnswerbtn.textContent = 'mark As Taken';
+		submitAnswerbtn.className = 'submitanswerbtn btn btn-primary';
+		submitAnswerbtn.addEventListener('click', () => {
+			alert('u taken the exam successfully');
+			location = './takingcourse.html';
+		});
+		enrolledlistforquiz.appendChild(submitAnswerbtn);
 
-          
-
-          let submitAnswerbtn = document.createElement('a')
-          submitAnswerbtn.textContent = 'mark As Taken'
-          submitAnswerbtn.className = 'submitanswerbtn btn btn-primary';
-          submitAnswerbtn.addEventListener('click' , ()=>{
-            alert('u taken the exam successfully')
-            location = './takingcourse.html'
-          })
-          enrolledlistforquiz.appendChild(submitAnswerbtn)
-
-          e.target.href ="#test-swipe-3"
-
-      }
-      
-
-
-
-
-
-
-
-
-
-
-
-      
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-}); 
+		e.target.href = '#test-swipe-3';
+	}
+});

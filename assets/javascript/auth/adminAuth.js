@@ -17,7 +17,7 @@ if (sess) {
 	email.textContent = z[0][1];
 	role.textContent = z[1][1];
 
-	if (r !== 'student') {
+	if (r !== 'admin') {
 		location = './unauthorized.html';
 	}
 } else {

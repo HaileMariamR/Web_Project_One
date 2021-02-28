@@ -28,10 +28,11 @@ document.addEventListener('DOMContentLoaded', () => {
 					role: sRole.value,
 					password: sPassword.value,
 				});
+
 				location.href = './index.html';
 			}
 		}
-		Cookies.set('user', `email=${email.value}&role=${sRole.value}`, { expires: 7 });
+		Cookies.set('user', `email=${email.value}&role=${sRole.value}&name=${sUserName.value}`, { expires: 7 });
 		sUserName.value = '';
 		email.value = '';
 		sPassword.value = '';
@@ -50,7 +51,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		for (let index in users) {
 			if (userName === users[index].fullname && userpass === users[index].password) {
-				Cookies.set('user', `email=${users[index].email}&role=${users[index].role}`, { expires: 7 });
+				Cookies.set(
+					'user',
+					`email=${users[index].email}&role=${users[index].role}$name=${users[index].userName}`,
+					{
+						expires: 7,
+					}
+				);
 				// location = './student.html';
 				break;
 			} else {

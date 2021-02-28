@@ -1,248 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-   
-    <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
-    crossorigin="anonymous"
-  />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-   
-    <link rel="stylesheet"    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet"    href="./assets/css/owl.carousel.min.css">
-    <link rel="stylesheet"    href="./assets/css/owl.theme.default.min.css">
-    <link rel="stylesheet"    href="./assets/css/style.css">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-      <Style>
-        img{
-          width: 10rem;
-          height: 19rem;
-        }
-       
-      </Style>
-</head>
-<body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+		/>
 
-  <div class="navbar-fixed">
-    <nav>
-        <div class="nav-wrapper" >
-          <a href="#" id="home" class="brand-logo">Logo</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li style="margin-right: 450px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;font-size: 40px;color: black;" ><Span>Users Page</Span></li>
-            <li><a href="./index.html" id="Signup"  class="btn btn-outline-primary">SignOut</a></li>
-          </ul>
-        </div>
-      </nav>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+		/>
 
-</div>
-<div>
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">YONDAH</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="#">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Link</a>
+						</li>
+					</ul>
+					<div id="profile" class="nav-item dropdown">
+						<a
+							class="nav-link dropdown-toggle"
+							href="#"
+							id="navbarDropdown"
+							role="button"
+							data-bs-toggle="dropdown"
+							aria-expanded="false"
+						>
+						</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<li><a class="dropdown-item" href="#">profile</a></li>
+							<li><hr class="dropdown-divider" /></li>
+							<li><a onclick="confirmAlert()" class="dropdown-item" href="#">sign out</a></li>
+							<li>
+								<p id="role" class="dropdown-item" style="font-size: 11px; color: black"></p>
+							</li>
+						</ul>
+					</div>
+					<a id="logIn" href="./login.html" class="btn btn-primary" style="display: none">Login</a>
+				</div>
+			</div>
+		</nav>
 
-  <ul id="tabs-swipe-demo" class="tabs">
-    <li class="tab col s3"><a href="#test-swipe-1 " style="color:blue;">Avialiable courses</a></li>
-    <li class="tab col s3"><a  href="#test-swipe-2" style="color:blue;">Inprogress</a></li>
-    <li class="tab col s3"><a href="#test-swipe-3" style="color: blue;">Take quiz</a></li>
-  </ul>
-  <div class="swipe-content">
-    <div id="test-swipe-1" class="col s12 ">
+		<div>
+			<ul id="tabs-swipe-demo" class="tabs">
+				<li class="tab col s3"><a href="#test-swipe-1 " style="color: blue">Avialiable courses</a></li>
+				<li class="tab col s3"><a href="#test-swipe-2" style="color: blue">Inprogress</a></li>
+				<li class="tab col s3"><a href="#test-swipe-3" style="color: blue">Take quiz</a></li>
+			</ul>
+			<div class="swipe-content">
+				<div id="test-swipe-1" class="col s12">
+					<div class="col s12">
+						<input id="search" type="text" class="validate" placeholder="Search..." />
 
-           <div  class="col s12">
-              <input id="search" type="text" class="validate" placeholder="Search...">
+						<div class="allCoursePlaceholder row"></div>
+					</div>
+				</div>
 
-            <div class="allCoursePlaceholder row">
+				<div id="test-swipe-2" class="col s12">
+					<div class="enrolledList row"></div>
+				</div>
+				<div id="test-swipe-3" class="col s12">
+					<div class="enrolledlistforquiz row"></div>
+				</div>
+			</div>
+		</div>
 
-              
-            </div>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+			crossorigin="anonymous"
+		></script>
 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="./assets/javascript/owl.carousel.min.js"></script>
 
-          </div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-    </div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 
+		<script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
 
-  <div id="test-swipe-2" class="col s12 ">
+		<script src="./assets/javascript/courseDb/allDatabase.js"></script>
+		<script src="./assets/javascript/student.js"></script>
 
-      <div class="enrolledList row">
-
-      </div>
-
-
-  </div>
-  <div id="test-swipe-3" class="col s12 ">
-
-
-        <div class="enrolledlistforquiz row">
-
-        </div>
-
-  </div>
-
-  </div>
-
-</div>
- 
-  
-
-  
-
-
-
-
-
-
-
-
-
-
-  <!-- <div class="navbar-fixed">
-    <nav>
-        <div class="nav-wrapper" >
-          <a href="#" id="home" class="brand-logo">Logo</a>
-          
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a id="Login" class="btn btn-outline-primary" href="#">LogOut</a></li>
-          </ul>
-        </div>
-      </nav>
-</div>
-     -->
-
-    <!-- Nav tabs -->
-
-<!-- Nav tabs -->
-
-
-
-<!-- 
-  <div class="row">
-    <div class="col-md-4">
-      <h4 class="btn m-4" >Avialiable Course</h4><br>
-
-         <strong class="m-4">javascript</strong> 
-        <div class="card">
-          <div class="card-image">
-            <img src="./assets/Images/ImageFour.jpg">
-            <span class="card-title">Card Title</span>
-          </div>
-          <div class="card-content">
-            <p>I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively.</p>
-          </div>
-          <div class="card-action">
-        <button class="enroll btn" style="background-color: brown;" >enroll</button>
-  
-          </div>
-      </div>
-
-    </div> 
-    <div class="col-md-4">
-      <h4 class="btn m-4" >Inprogress</h4><br>
-
-         <strong class="m-4">javascript</strong>
-        <div class="card">
-          <div class="card-image">
-            <img src="./assets/Images/ImageFour.jpg">
-            <span class="card-title">Card Title</span>
-          </div>
-          <div class="card-content">
-            <p>I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively.</p>
-          </div>
-          <div class="card-action">
-        <button style="background-color: brown;" class="btn">Remove</button>
-        <button style="background-color: brown;" class="btn">Continue</button>
-
-  
-          </div>
-      </div>
-
-    </div>
-    <div class="col-md-4">
-      <h4 class="btn m-4" >Take quiz</h4><br>
-
-         <strong class="m-4">javascript</strong>
-        <div class="card">
-          <div class="card-image">
-            <img src="./assets/Images/ImageFour.jpg">
-            <span class="card-title">Card Title</span>
-          </div>
-          <div class="card-content">
-            <p>I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively.</p>
-          </div>
-          <div class="card-action">
-        <button style="background-color: brown;" class="btn">Questions</button>
-  
-        </div>
-      </div>
-
-
-    </div>
-  </div>
-   
-
-
-
--->
-<!-- 
-<footer style="margin-top: 30rem;" class="page-footer" class="container">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col l6 s12">
-        <h5 class="white-text">Footer Content</h5>
-        <p class="grey-text text-lighten-4">
-          You can use rows and columns here to organize your footer content.
-        </p>
-      </div>
-      <div class="col l4 offset-l2 s12">
-        <h5 class="white-text">Links</h5>
-        <ul>
-          <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="footer-copyright">
-    <div class="container">
-      © 2014 Copyright Text
-      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-    </div>
-
-    <div class="pull-right">
-      <a href="#home"><i class="fa fa-angle-up fa-3x"></i></a>
-    </div>
-  </div>
-</footer> -->
-
-
-
-  
-      
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="./assets/javascript/owl.carousel.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  
-  <!-- <script>
-    $(document).ready(function(){
-  $('.tabs').tabs();
-});
-  </script> -->
-
-  <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
-
-  <script src="./assets/javascript/allDatabase.js"></script>
-  <script src="./assets/javascript/student.js"></script>
-
-</body>
+		<!-- cookie -->
+		<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+		<!-- auth -->
+		<script src="./assets/javascript/auth/studentAuth.js"></script>
+		<!-- alert -->
+		<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+	</body>
 </html>

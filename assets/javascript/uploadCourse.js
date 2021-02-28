@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
 			courseTitle: courseTitle.value,
 			courseDescription: courseDescription.value,
 			courseImage: courseImage.value,
-			courseDuration: courseTitle.value,
-			courseStream: coursePrice.value,
+			courseDuration: courseDuration.value,
+			courseStream: courseStream.value,
 			coursePrice: coursePrice.value,
 		};
 

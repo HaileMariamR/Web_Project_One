@@ -17,10 +17,6 @@ if (sess) {
 
 	email.textContent = z[0][1];
 	role.textContent = z[1][1];
-
-	if (r !== 'student') {
-		location = './unauthorized.html';
-	}
 } else {
 	logIn.style.display = '';
 	profile.style.display = 'none';
@@ -45,4 +41,26 @@ function confirmAlert() {
 			signOut();
 		}
 	});
+}
+
+function checkAuth() {
+	if (sess) {
+		var z = [];
+		var res = sess.split('&');
+		for (let i of res) {
+			var arg = i.split('=');
+			z.push(arg);
+		}
+		let role = z[1][1];
+
+		if (role == 'student') {
+			location = './login.html?login=0';
+		} else if (role == 'instructor') {
+			location = './staff.html';
+		} else if (role == 'admin') {
+			location = './login.html?login=0';
+		}
+	} else {
+		location = './login.html?login=0';
+	}
 }
