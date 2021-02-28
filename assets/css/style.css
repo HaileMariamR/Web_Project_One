@@ -14,7 +14,17 @@ body {
     overflow-y: auto;
 }
 
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
 .parallax-container {
+    background: #000;
+    margin-top: 5%;
     position: relative;
     overflow: hidden;
     height: 500px;
@@ -315,4 +325,23 @@ th {
 
 tr:nth-child(even) {
     background-color: #dddddd;
+}
+
+
+
+
+/* media queries */
+
+@media(max-width:768px) {
+    .hideOnResponsive {
+        display: none !important;
+    }
+
+    #intro {
+        font-size: 1.4rem;
+    }
+
+    #w {
+        order: 2;
+    }
 }

@@ -76,10 +76,8 @@
 				<li class="nav-item" role="presentation">
 					<a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1">Dashboard</a>
 				</li>
-				<li class="nav-item" role="presentation">
-					<a class="nav-link" role="tab" data-toggle="tab" href="#tab-2">Upload course</a>
-				</li>
-				<li class="nav-item" role="presentation">
+
+				<!-- <li class="nav-item" role="presentation">
 					<a
 						onclick="buildCourse()"
 						id="manage-course"
@@ -89,7 +87,7 @@
 						href="#tab-3"
 						>Courses</a
 					>
-				</li>
+				</li> -->
 			</ul>
 			<div class="tab-content">
 				<div class="tab-pane active" role="tabpanel" id="tab-1">
@@ -187,77 +185,18 @@
 									<th>Name</th>
 									<th>Role</th>
 									<th>Email</th>
-									<th>Password</th>
+									<!-- <th>Password</th> -->
 								</tr>
 							</thead>
 							<tbody id="data"></tbody>
 						</table>
 					</div>
 				</div>
-				<div class="tab-pane" role="tabpanel" id="tab-3">
+				<!-- <div class="tab-pane" role="tabpanel" id="tab-3">
 					<div class="container">
 						<div id="courses" class="row"></div>
 					</div>
-				</div>
-
-				<main class="main tab-pane col-md-6 col-sm-12" role="tabpanel" id="tab-2">
-					<div class="container head">
-						<h1>Upload Course</h1>
-					</div>
-					<div class="container main">
-						<form class="row g-3 needs-validation" novalidate>
-							<div class="col-md-4">
-								<label for="validationCustom01" class="form-label">Course title</label>
-								<input type="text" class="form-control" id="validationCustom01" required />
-								<div class="invalid-feedback">required</div>
-							</div>
-							<div class="col-md-4">
-								<label for="validationCustom02" class="form-label">Course img</label>
-								<input type="text" class="form-control" id="validationCustom02" required />
-								<div class="invalid-feedback">required</div>
-							</div>
-							<div class="col-md-4">
-								<label for="validationCustom03" class="form-label">Course Duration</label>
-								<input type="text" class="form-control" id="validationCustom03" required />
-								<div class="invalid-feedback">Please provide a valid number.</div>
-							</div>
-
-							<div class="col-md-6">
-								<label for="validationCustom04" class="form-label">Stream</label>
-								<select class="form-select" id="validationCustom04" required>
-									<option selected disabled value="">Choose...</option>
-									<option>IT</option>
-									<option>Software Engineering</option>
-									<!-- <option>...</option> -->
-								</select>
-								<div class="invalid-feedback">Please select a stream.</div>
-							</div>
-							<div class="col-md-6">
-								<label for="validationCustom05" class="form-label">Price</label>
-								<input type="text" class="form-control" id="validationCustom05" required />
-								<div class="invalid-feedback">Please provide a valid number.</div>
-							</div>
-							<div class="col-md-12">
-								<label for="validationCustom03" class="form-label">Description</label>
-								<textarea
-									class="form-control"
-									name=""
-									id="validationCustom06"
-									cols="30"
-									rows="5"
-									required
-								></textarea>
-								<div class="invalid-feedback">
-									Please provide a little description about the course.
-								</div>
-							</div>
-
-							<div class="col-12">
-								<button class="btn btn-primary" type="submit">Upload course</button>
-							</div>
-						</form>
-					</div>
-				</main>
+				</div> -->
 			</div>
 		</div>
 

@@ -10,7 +10,7 @@ if (sess) {
 	let role = z[1][1];
 
 	if (role == 'student') {
-		location = './auth.html';
+		location = './student.html';
 	} else if (role == 'instructor') {
 		location = './staff.html';
 	} else if (role == 'admin') {

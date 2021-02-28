@@ -1,5 +1,3 @@
-M.AutoInit();
-
 // const logintempo = document.querySelector('#Login');
 // const signup = document.querySelector('#Signup');
 
@@ -7,27 +5,27 @@ M.AutoInit();
 //     location = './signUpPage.html'
 // })
 
-$('.owl-carousel').owlCarousel({
-	loop: true,
-	margin: 10,
-	nav: false,
-	autoplay: true,
-	autoplayTimeout: 2000,
-	dots: false,
-	responsive: {
-		0: {
-			items: 1,
-		},
-		600: {
-			items: 3,
-		},
-		1000: {
-			items: 5,
-		},
-	},
-});
+// $('.owl-carousel').owlCarousel({
+// 	loop: true,
+// 	margin: 10,
+// 	nav: false,
+// 	autoplay: true,
+// 	autoplayTimeout: 2000,
+// 	dots: false,
+// 	responsive: {
+// 		0: {
+// 			items: 1,
+// 		},
+// 		600: {
+// 			items: 3,
+// 		},
+// 		1000: {
+// 			items: 5,
+// 		},
+// 	},
+// });
 
-const enrollbtn = document.querySelector('.enroll');
+// const enrollbtn = document.querySelector('.enroll');
 // enrollbtn.addEventListener('click' ,()=>{
 
 //         location = './takingCourse.html'

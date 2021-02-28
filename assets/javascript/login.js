@@ -38,6 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		sVPassword.value = '';
 	}
 
+	// Login
+
 	async function userAuthentication(event) {
 		event.preventDefault();
 
@@ -45,11 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
 		userpass = lPassword.value;
 
 		let users = await newdb.users.toArray();
-		let verifyUser;
+
 		for (let index in users) {
 			if (userName === users[index].fullname && userpass === users[index].password) {
-				verifyUser = true;
-				console.log('hiiiiiiiiiiiiiiiiiiiiiiiii');
 				Cookies.set('user', `email=${users[index].email}&role=${users[index].role}`, { expires: 7 });
 				// location = './student.html';
 				break;
@@ -65,15 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
 				break;
 			}
 		}
-
-		// if (verifyUser == true && checkboxuser.checked) {
-		// 	location = './student.html';
-		// } else if (userName === 'harry@admin.com' && userpass == 'password' && checkboxadmin.checked) {
-		// 	location = './admin.html';
-		// } else {
-		// 	console.log('incorrect Email or password!');
-		// 	alert('incorrect Email,password or privilege!');
-		// }
 
 		lUserName.value = '';
 		lPassword.value = '';

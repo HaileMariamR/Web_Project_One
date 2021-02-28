@@ -17,78 +17,22 @@ document.addEventListener('DOMContentLoaded', () => {
 	getInst().then((data_) => {
 		instNum.innerHTML = data_.length;
 	});
-	getCourses().then((data_) => {
-		coursesNum.innerHTML = data_.length;
-	});
+
+	// { data: 'password.' }
 	getUsers().then((data_) => {
 		studentsNum.innerHTML = data_.length;
 		$('#table_id').DataTable({
 			data: data_,
-			columns: [{ data: 'id' }, { data: 'fullname' }, { data: 'role' }, { data: 'email' }, { data: 'password.' }],
+			columns: [{ data: 'id' }, { data: 'fullname' }, { data: 'role' }, { data: 'email' }],
 		});
 	});
-
-	function uploadCourse() {
-		courseDatabase.courses.put({
-			courseName: courseTitle.value,
-			courseTitle: courseTitle.value,
-			courseDetail: courseTitle.value,
-			courseImage: courseTitle.value,
-		});
-	}
-
-	function resetValue() {
-		courseTitle.value = '';
-		coruseImage.value = '';
-		courseDuration.value = '';
-		courseStream.value = '';
-		coursePrice.value = '';
-		courseDescription.value = '';
-	}
-
-	// Example starter JavaScript for disabling form submissions if there are invalid fields
-	(function () {
-		'use strict';
-
-		// Fetch all the forms we want to apply custom Bootstrap validation styles to
-		var forms = document.querySelectorAll('.needs-validation');
-
-		// Loop over them and prevent submission
-		Array.prototype.slice.call(forms).forEach(function (form) {
-			form.addEventListener(
-				'submit',
-				function (event) {
-					if (!form.checkValidity()) {
-						event.preventDefault();
-						event.stopPropagation();
-					} else {
-						event.preventDefault();
-						uploadCourse();
-						Swal.fire({
-							position: 'top-end',
-							icon: 'success',
-							title: 'Your course have been uploaded',
-							showConfirmButton: false,
-							timer: 1500,
-						});
-					}
-
-					form.classList.add('was-validated');
-				},
-				false
-			);
-		});
-	})();
 });
 
 async function getUsers() {
 	let users = await newdb.users.toArray();
 	return users;
 }
-async function getCourses() {
-	let courses = await courseDatabase.courses.toArray();
-	return courses;
-}
+
 async function getInst() {
 	let inst = await newdb.users.toArray();
 	return inst;
