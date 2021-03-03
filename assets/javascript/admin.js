@@ -15,12 +15,18 @@ const courses = document.querySelector('#courses');
 
 document.addEventListener('DOMContentLoaded', () => {
 	getInst().then((data_) => {
-		instNum.innerHTML = data_.length;
+		var num = data_.filter((user) => {
+			return user.role == 'instructor';
+		});
+		instNum.innerHTML = num.length;
 	});
 
 	// { data: 'password.' }
 	getUsers().then((data_) => {
-		studentsNum.innerHTML = data_.length;
+		var num = data_.filter((user) => {
+			return user.role == 'student';
+		});
+		studentsNum.innerHTML = num.length;
 		$('#table_id').DataTable({
 			data: data_,
 			columns: [{ data: 'id' }, { data: 'fullname' }, { data: 'role' }, { data: 'email' }],
