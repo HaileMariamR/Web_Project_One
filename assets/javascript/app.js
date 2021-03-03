@@ -56,6 +56,12 @@ async function getCourses() {
 function buildCourse() {
 	courses.innerHTML = '';
 	getCourses().then((data) => {
+		// must be for enrolled courses
+		// if (data.length == 0) {
+		// 	info.innerHTML = 'Start lrarning today.';
+		// } else {
+		// 	info.innerHTML = 'Continue where you left off.';
+		// }
 		for (let index = 0; index < data.length; index++) {
 			const {
 				id,
@@ -71,6 +77,8 @@ function buildCourse() {
 			} = data[index];
 
 			let oneCourse = document.createElement('div');
+			oneCourse.classList.add('col-md-3');
+			oneCourse.classList.add('indv-c');
 			oneCourse.innerHTML = `
 
 			<div class="card" style="width: 25rem">

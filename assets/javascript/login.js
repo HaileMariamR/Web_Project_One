@@ -17,22 +17,43 @@ document.addEventListener('DOMContentLoaded', () => {
 	sSubmit.addEventListener('click', adduser);
 	lSubmit.addEventListener('click', userAuthentication);
 
-	function adduser(e) {
+	async function adduser(e) {
 		e.preventDefault();
+		let users = await newdb.users.toArray();
 
 		if (!sUserName.value == '' && !email.value == '' && !sPassword.value == '') {
 			if (sPassword.value === sVPassword.value) {
+				for (let index in users) {
+					if (email === users[index].email.value || sUserName.value === users[index].fullname) {
+						Swal.fire({
+							icon: 'error',
+							title: 'Error',
+							text: 'Another user alredy registered with these credentials!',
+							backdrop: `
+							rgba(0,0,12,0.4)
+						   `,
+						});
+						sUserName.value = '';
+						email.value = '';
+						sPassword.value = '';
+						sVPassword.value = '';
+						return;
+					}
+				}
 				newdb.users.put({
 					fullname: sUserName.value,
 					email: email.value,
 					role: sRole.value,
 					password: sPassword.value,
 				});
-
+				Cookies.set('user', `email=${email.value}&role=${sRole.value}&name=${sUserName.value}`, { expires: 7 });
 				location.href = './index.html';
 			}
+		} else {
+			//tell the user
+			console.log('empty');
 		}
-		Cookies.set('user', `email=${email.value}&role=${sRole.value}&name=${sUserName.value}`, { expires: 7 });
+
 		sUserName.value = '';
 		email.value = '';
 		sPassword.value = '';
@@ -44,39 +65,33 @@ document.addEventListener('DOMContentLoaded', () => {
 	async function userAuthentication(event) {
 		event.preventDefault();
 
-		userName = lUserName.value;
-		userpass = lPassword.value;
-
 		let users = await newdb.users.toArray();
 
 		for (let index in users) {
-			if (userName === users[index].fullname && userpass === users[index].password) {
+			if (lUserName.value == users[index].fullname && lPassword.value == users[index].password) {
 				Cookies.set(
 					'user',
-					`email=${users[index].email}&role=${users[index].role}$name=${users[index].userName}`,
-					{
-						expires: 7,
-					}
+					`email=${users[index].email}&role=${users[index].role}&name=${users[index].fullname}`,
+					{ expires: 7 }
 				);
-				// location = './student.html';
-				break;
-			} else {
-				Swal.fire({
-					icon: 'error',
-					title: 'Error',
-					text: 'Wrong credentials!',
-					backdrop: `
-                    rgba(0,0,12,0.4)    
-                   `,
-				});
-				break;
+				location.href = './index.html';
+				return;
 			}
 		}
+
+		Swal.fire({
+			icon: 'error',
+			title: 'Error',
+			text: 'Wrong credentials!',
+			backdrop: `
+		    rgba(0,0,12,0.4)
+		   `,
+		});
 
 		lUserName.value = '';
 		lPassword.value = '';
 	}
-
+	//////////////
 	const urlParams = new URLSearchParams(window.location.search);
 	const page = urlParams.get('login');
 

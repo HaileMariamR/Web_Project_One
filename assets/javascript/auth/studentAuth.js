@@ -52,7 +52,7 @@ function checkAuth() {
 			z.push(arg);
 		}
 		let role = z[1][1];
-
+		
 		if (role == 'student') {
 			location = './login.html?login=0';
 		} else if (role == 'instructor') {
