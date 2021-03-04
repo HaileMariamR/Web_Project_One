@@ -6,7 +6,7 @@ $(document).ready(function () {
 
 //     addCourse();
 //     takequiz();
-//     location = './takingcourse.html'
+//     location = './courseDisplayInfo.html'
 
 // });
 
@@ -159,6 +159,43 @@ document.addEventListener('DOMContentLoaded', async () => {
 		let newEnrolledCourseElement = document.createElement('div');
 		newEnrolledCourseElement.className = 'card coursediv col-md-12';
 
+		let enrolledCourseInfo = {
+			enrolledcourseName: '',
+			enrolledcourseTitle: '',
+			enrolledcourseDetail: '',
+			enrolledcourseImage: '',
+		};
+
+		let enrollParentElement = e.target.parentElement;
+
+		let courseinfo = enrollParentElement.children;
+
+		enrolledCourseInfo.enrolledcourseName = courseinfo[0].textContent;
+		enrolledCourseInfo.enrolledcourseTitle = courseinfo[1].textContent;
+		enrolledCourseInfo.enrolledcourseDetail = courseinfo[2].textContent;
+		enrolledCourseInfo.enrolledcourseImage = enrollParentElement.parentElement.children[0].src;
+
+		studentCourse.courses.put(enrolledCourseInfo);
+
+		location = './courseDisplayInfo.html';
+	}
+
+	//// for enrollment
+
+	const enrolledList = document.querySelector('.enrolledList');
+
+	let getAllEnrolledCourse = await studentCourse.courses.toArray();
+	// console.log(getAllEnrolledCourse);
+
+	for (let index = 0; index < getAllEnrolledCourse.length; index++) {
+		let img = getAllEnrolledCourse[index].enrolledcourseImage;
+		let name = getAllEnrolledCourse[index].enrolledcourseName;
+		let title = getAllEnrolledCourse[index].enrolledcourseTitle;
+		let detail = getAllEnrolledCourse[index].enrolledcourseDetail;
+
+		let newEnrolledCourseElement = document.createElement('div');
+		newEnrolledCourseElement.className = 'card coursediv col-md-12';
+
 		newEnrolledCourseElement.innerHTML = ` <img src="${img}" class="courseimage card-img-top" alt="..." />
           <div class="card-body">
             <h5 style="font-size:15px;color:cyan" class="card-title coursename">${name}</h5>
@@ -169,8 +206,9 @@ document.addEventListener('DOMContentLoaded', async () => {
               ${detail}
             </p>
             <p>5⭐⭐⭐⭐⭐</p>
+
             <p style="color: brown">100 Students Enrolled</p>
-            <a href="./takingcourse.html" class="btn enroll btn-danger"> go to course</a>
+            <a href="./courseDisplayInfo.html" class="btn enroll btn-danger"> go to course</a>
             <a href="#" class="btn remove btn-danger"> remove Course</a>
             <a href="#" class="btn takequiz btn-danger"> take quiz</a>
 
@@ -192,7 +230,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 		let removedCourseName = e.target.parentElement.children[0].textContent;
 		// console.log(removedCourseName );
 		studentCourse.courses.where('enrolledcourseName').equals(removedCourseName).delete();
-		// studentCourse.courses.where('enrolledcourseName').equals('').delete();
+		// stud entCourse.courses.where('enrolledcourseName').equals('').delete();
 		// studentCourse.courses.delete(1);
 	}
 
@@ -288,7 +326,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 		submitAnswerbtn.className = 'submitanswerbtn btn btn-primary';
 		submitAnswerbtn.addEventListener('click', () => {
 			alert('u taken the exam successfully');
-			location = './takingcourse.html';
+			location = './courseDisplayInfo.html';
 		});
 		enrolledlistforquiz.appendChild(submitAnswerbtn);
 

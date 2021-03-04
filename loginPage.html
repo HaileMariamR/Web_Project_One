@@ -24,22 +24,17 @@
 	</head>
 
 	<body>
-		<nav>
-			<div class="nav-wrapper">
-				<a href="#!" class="brand-logo"><i class="material-icons">email</i>(Logo)</a>
-				<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-				<ul class="right hide-on-med-and-down">
-					<li><a href="./index.html">Home</a></li>
-					<li><a href="./signUpPage.html">Sign Up</a></li>
-					<li><a href="#">Help</a></li>
-				</ul>
-				<ul class="side-nav" id="mobile-demo">
-					<li><a href="./index.html">Home</a></li>
-					<li><a href="./signUpPage.html">Sign Up</a></li>
-					<li><a href="#">Help</a></li>
-				</ul>
-			</div>
-		</nav>
+		<div class="navbar-fixed">
+			<nav>
+				<div class="nav-wrapper">
+					<a href="#" id="home" class="brand-logo">Logo</a>
+
+					<ul id="nav-mobile" class="right hide-on-med-and-down">
+						<li><a id="Login" class="btn btn-outline-primary">Login</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
 
 		<main>
 			<center style="margin-top: 3em">
@@ -58,18 +53,28 @@
 							<div class="row">
 								<div class="col s12"></div>
 							</div>
-
+							<div class="row">
+								<p class="col s6">
+									<input type="radio" id="radioUser" name="privilage" />
+									<label for="radioUser">User</label>
+								<p>
+								<p class="col s6">
+									<input type="radio" id="radioAdmin" name="privilage"/>
+									<label for="radioAdmin">Admin</label>
+								<p>
+							</div>
 							<div class="row">
 								<div class="input-field col s12">
-									<input class="validate" type="email" name="email" id="email" />
-									<label for="email">Enter your email</label>
+									<input class="validate" type="email" name="emailaddress" id="emailaddress" />
+									<label for="emailaddress">Email: </label>
 								</div>
 							</div>
 
+
 							<div class="row">
 								<div class="input-field col s12">
-									<input class="validate" type="password" name="password" id="password" />
-									<label for="password">Enter your password</label>
+									<input class="validate" type="password" name="userpassword" id="userpassword" />
+									<label for="userpassword">Enter your password</label>
 								</div>
 								<p>
 									<input type="checkbox" id="remember" />
@@ -79,13 +84,15 @@
 									<a class="pink-text" href="#!"><b>Forgot Password?</b></a>
 								</label>
 							</div>
+							
 
 							<br />
 							<center>
 								<div class="row">
 									<button
 										type="submit"
-										name="btn_login"
+										name="login"
+										id = "login"
 										class="col s12 btn btn-large waves-effect indigo login"
 									>
 										Login
@@ -97,16 +104,15 @@
 				</div>
 				<a href="./signUpPage.html">Create account</a>
 			</center>
-
-			<div class="section"></div>
-			<div class="section"></div>
-		</main>
 		<!--Import jQuery before materialize.js-->
+
+		<script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+		<script src="./assets/javascript/allDatabase.js"></script>
+		<script src="./assets/javascript/login.js"></script>
 		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 		<script>
 			$('.button-collapse').sideNav();
 		</script>
-		<script src="./assets/javascript/login.js"></script>
 	</body>
 </html>

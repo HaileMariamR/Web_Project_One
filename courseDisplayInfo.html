@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+/>
+<link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+    crossorigin="anonymous"
+/>    
+    <style>
+        .nav-pills-custom .nav-link {
+            color: #aaa;
+            background: #fff;
+            position: relative;
+        }
+        
+        .nav-pills-custom .nav-link.active {
+            color: #45b649;
+            background: #fff;
+        }
+
+        
+
+.sub-nav-link {
+    width:180px;
+}
+
+h1{color:#45b649}
+
+body {
+    min-height: 100vh;}
+li .sub-nav-link{display:block;}
+
+    </style>
+</head>
+<body>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" id="home" class="brand-logo">Logo</a>
+
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a id="Login" class="btn btn-outline-primary">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!--  header-->
+<section class="py-5 header">
+    <div class="container py-4">
+        <header class="text-center mb-5 pb-5 text-white">
+            <h1 class="display-4">course title</h1>
+        </header>
+
+
+        <div class="row">
+            <div class="col-md-3">
+                <!-- Tabs nav -->
+                <div class="border-right border-bottom nav flex-column nav-pills nav-pills-custom" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link mb-3 p-3 profile-chapter-one shadow active " id="v-pills-home-tab" data-toggle="pill" href="#about-the-course" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                        <img src="https://img.icons8.com/wired/64/000000/training.png"/>
+                        <span class="font-weight-bold small">Introduction</span></a>
+
+                    <a data-toggle="collapse"  data-target="#infoDataOne" class="nav-link  mb-3 p-3 shadow" id="profile-chapter-one">
+                        <span class="font-weight-bold small ">Chapter 1</span></a>
+                        
+                        <i class="fa fa-calendar-minus-o mr-2"></i>
+                                <div class="collapse" id="infoDataOne">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <a class="text-info sub-nav-link" id="section-one" data-toggle="pill" href="#chapter-one" role="tab" aria-controls="chapter-one" aria-selected="false">
+                                            <span class="font-weight-bold small ">1.1</span>
+                                        </a>
+                                    </li>
+                                    <li class="list-group-item">
+                                            <a class="text-info sub-nav-link" id="section-one" data-toggle="pill" href="#chapter-one" role="tab" aria-controls="chapter-one" aria-selected="false">
+                                                <span class="font-weight-bold small ">1.2</span>
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a class="text-info sub-nav-link" id="section-one" data-toggle="pill" href="#chapter-one" role="tab" aria-controls="chapter-one" aria-selected="false">
+                                                <span class="font-weight-bold small ">1.3</span>
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a class="text-info sub-nav-link" id="section-one" data-toggle="pill" href="#chapter-one" role="tab" aria-controls="chapter-one" aria-selected="false">
+                                                <span class="font-weight-bold small ">1.4</span>
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a class="text-info sub-nav-link" id="section-one" data-toggle="pill" href="#chapter-one" role="tab" aria-controls="chapter-one" aria-selected="false">
+                                                <span class="font-weight-bold small ">1.5</span>
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a class="border-bottom text-info sub-nav-link" id="section-one" data-toggle="pill" href="#chapter-one" role="tab" aria-controls="chapter-one" aria-selected="false">
+                                                <span class="font-weight-bold small ">summary</span>
+                                            </a>
+                                        </li>
+                              </ul>
+                                    
+                                </div>
+                    </a>
+                    <a data-toggle="collapse" data-target="#infoDataTwo" class="nav-link mb-3 p-3 shadow" id="profile-chapter-two">
+                        <span class="font-weight-bold small ">Chapter 2</span></a>
+                        
+                        <i class="fa fa-calendar-minus-o mr-2"></i>
+                                <div class="collapse" id="infoDataTwo">
+                                <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            <a class=" active text-info sub-nav-link" id="section-one" data-toggle="pill" href="#chapter-two" role="tab" aria-controls="chapter-two" aria-selected="false">
+                                                <span class="font-weight-bold small ">2.1</span>
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a class="text-info sub-nav-link" id="section-one" data-toggle="pill" href="#chapter-two" role="tab" aria-controls="chapter-two" aria-selected="false">
+                                                <span class="font-weight-bold small ">2.2</span>
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a class="text-info sub-nav-link" id="section-one" data-toggle="pill" href="#chapter-two" role="tab" aria-controls="chapter-two" aria-selected="false">
+                                                <span class="font-weight-bold small ">2.3</span>
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a class="text-info sub-nav-link" id="section-one" data-toggle="pill" href="#chapter-two" role="tab" aria-controls="chapter-two" aria-selected="false">
+                                                <span class="font-weight-bold small ">2.4</span>
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a class="text-info sub-nav-link" id="section-one" data-toggle="pill" href="#chapter-two" role="tab" aria-controls="chapter-two" aria-selected="false">
+                                                <span class="font-weight-bold small ">2.5</span>
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a class="border-bottom text-info sub-nav-link" id="section-one" data-toggle="pill" href="#chapter-two" role="tab" aria-controls="chapter-two" aria-selected="false">
+                                                <span class="font-weight-bold small ">summary</span>
+                                            </a>
+                                        </li>
+                              </ul>
+                                    
+                                </div>
+                    </a>
+                    <a data-toggle="collapse" data-target="#infoDataThree" class="nav-link mb-3 p-3 shadow" id="profile-chapter-three">
+                        <span class="font-weight-bold small ">Chapter 3</span></a>
+                        
+                        <i class="fa fa-calendar-minus-o mr-2"></i>
+                                <div class="collapse" id="infoDataThree">
+                                <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            <a class=" active text-info sub-nav-link" id="section-one" data-toggle="pill" href="#chapter-three" role="tab" aria-controls="chapter-three" aria-selected="false">
+                                                <span class="font-weight-bold small ">3.1</span>
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a class="text-info sub-nav-link" id="section-one" data-toggle="pill" href="#chapter-three" role="tab" aria-controls="chapter-three" aria-selected="false">
+                                                <span class="font-weight-bold small ">3.2</span>
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a class="text-info sub-nav-link" id="section-one" data-toggle="pill" href="#chapter-three" role="tab" aria-controls="chapter-three" aria-selected="false">
+                                                <span class="font-weight-bold small ">3.3</span>
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a class="text-info sub-nav-link" id="section-one" data-toggle="pill" href="#chapter-three" role="tab" aria-controls="chapter-three" aria-selected="false">
+                                                <span class="font-weight-bold small ">3.4</span>
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a class="text-info sub-nav-link" id="section-one" data-toggle="pill" href="#chapter-three" role="tab" aria-controls="chapter-three" aria-selected="false">
+                                                <span class="font-weight-bold small ">3.5</span>
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a class="border-bottom text-info sub-nav-link" id="section-one" data-toggle="pill" href="#chapter-three" role="tab" aria-controls="chapter-three" aria-selected="false">
+                                                <span class="font-weight-bold small ">summary</span>
+                                            </a>
+                                        </li>
+                              </ul>
+                                    
+                                </div>
+                    </a>
+                    <a data-toggle="collapse" data-target="#infoDataFour" class="nav-link mb-3 p-3 shadow" id="profile-chapter-four">
+                        <span class="font-weight-bold small ">Chapter 4</span></a>
+                        
+                        <i class="fa fa-calendar-minus-o mr-2"></i>
+                                <div class="collapse" id="infoDataFour">
+                                <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            <a class=" active text-info sub-nav-link" id="section-one" data-toggle="pill" href="#chapter-four" role="tab" aria-controls="chapter-four" aria-selected="false">
+                                                <span class="font-weight-bold small ">4.1</span>
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a class="text-info sub-nav-link" id="section-one" data-toggle="pill" href="#chapter-four" role="tab" aria-controls="chapter-four" aria-selected="false">
+                                                <span class="font-weight-bold small ">4.2</span>
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a class="text-info sub-nav-link" id="section-one" data-toggle="pill" href="#chapter-four" role="tab" aria-controls="chapter-four" aria-selected="false">
+                                                <span class="font-weight-bold small ">4.3</span>
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a class="text-info sub-nav-link" id="section-one" data-toggle="pill" href="#chapter-four" role="tab" aria-controls="chapter-four" aria-selected="false">
+                                                <span class="font-weight-bold small ">4.4</span>
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a class="text-info sub-nav-link" id="section-one" data-toggle="pill" href="#chapter-four" role="tab" aria-controls="chapter-four" aria-selected="false">
+                                                <span class="font-weight-bold small ">4.5</span>
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a class="border-bottom text-info sub-nav-link" id="section-one" data-toggle="pill" href="#chapter-four" role="tab" aria-controls="chapter-four" aria-selected="false">
+                                                <span class="font-weight-bold small ">summary</span>
+                                            </a>
+                                        </li>
+                              </ul>
+                                    
+                                </div>
+                    </a>
+                    <a data-toggle="collapse" data-target="#infoDataFive" class="nav-link mb-3 p-3 shadow" id="profile-tab-chapter-five">
+                        <span class="font-weight-bold small ">Chapter 5</span></a>
+                        
+                        <i class="fa fa-calendar-minus-o mr-2"></i>
+                                <div class="collapse" id="infoDataFive">
+                                <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            <a class=" active text-info sub-nav-link" id="section-one" data-toggle="pill" href="#chapter-four" role="tab" aria-controls="chapter-four" aria-selected="false">
+                                                <span class="font-weight-bold small ">5.1</span>
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a class="text-info sub-nav-link" id="section-one" data-toggle="pill" href="#chapter-five" role="tab" aria-controls="chapter-five" aria-selected="false">
+                                                <span class="font-weight-bold small ">5.2</span>
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a class="text-info sub-nav-link" id="section-one" data-toggle="pill" href="#chapter-five" role="tab" aria-controls="chapter-five" aria-selected="false">
+                                                <span class="font-weight-bold small ">5.3</span>
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a class="text-info sub-nav-link" id="section-one" data-toggle="pill" href="#chapter-five" role="tab" aria-controls="chapter-five" aria-selected="false">
+                                                <span class="font-weight-bold small ">5.4</span>
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a class="text-info sub-nav-link" id="section-one" data-toggle="pill" href="#chapter-five" role="tab" aria-controls="chapter-five" aria-selected="false">
+                                                <span class="font-weight-bold small ">5.5</span>
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a class="border-bottom text-info sub-nav-link" id="section-one" data-toggle="pill" href="#chapter-five" role="tab" aria-controls="chapter-five" aria-selected="false">
+                                                <span class="font-weight-bold small ">summary</span>
+                                            </a>
+                                        </li>
+                              </ul>
+                                    
+                                </div>
+                    </a>
+    
+                    <a class="nav-link mb-3 p-3 shadow" id="v-pills-settings-tab-two" data-toggle="pill" href="#summary" role="tab" aria-controls="summary" aria-selected="false">
+                            <i class="fa fa-check mr-2"></i>
+                            <span class="font-weight-bold small ">summary</span></a>
+                </div>
+            </div>
+
+
+            <div class="col-md-9">
+                <!-- Tabs content -->
+                <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade  show active p-3" id="about-the-course" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                        <h4 class="font-italic mb-4">Introduction </h4>
+                            <p class="font-italic text-muted mb-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde quas facilis magni, temporibus eos autem. Voluptatibus praesentium adipisci consectetur expedita ducimus nobis dicta! Commodi odit numquam totam, facilis aut, ducimus et, officia vitae nam repudiandae dolore inventore illum excepturi ipsa magni quod voluptatum sed natus. Explicabo tenetur dignissimos aliquam, debitis aperiam tempora quae ratione ducimus eius perferendis cum soluta. Labore deleniti perspiciatis ad pariatur ipsum aliquam laborum placeat dignissimos ea beatae iusto, praesentium recusandae exercitationem iste necessitatibus obcaecati accusamus est delectus veritatis qui vero! Distinctio iure dolorem ad, molestiae, obcaecati alias quaerat tempore similique minima quod pariatur nam eum excepturi rem incidunt ipsa nostrum iste numquam molestias voluptatibus, perferendis natus? Odit consectetur ipsa temporibus velit magnam quod quas. Architecto error sed libero, accusamus quis nemo magnam. Architecto, neque est sunt tenetur asperiores excepturi in reiciendis, dolorem beatae amet qui nesciunt ipsam, illo perferendis perspiciatis! Porro veritatis explicabo consequatur nulla officia aut quam magni dolorem! Iste laudantium nulla distinctio officia corporis adipisci! Facilis dolor debitis esse recusandae animi aut molestias impedit ullam accusantium consectetur, sed natus neque nulla ex quod earum reiciendis similique quasi cumque. Unde, quia beatae mollitia id accusamus, repudiandae, fugiat obcaecati non sed pariatur voluptates distinctio? Eveniet, quas?</p>
+                        </div>
+                    
+                    <div class="tab-pane fade  p-3" id="introduction" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                        <h4 class="font-italic mb-4">Introduction</h4>
+                            <p class="font-italic text-muted mb-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde quas facilis magni, temporibus eos autem. Voluptatibus praesentium adipisci consectetur expedita ducimus nobis dicta! Commodi odit numquam totam, facilis aut, ducimus et, officia vitae nam repudiandae dolore inventore illum excepturi ipsa magni quod voluptatum sed natus. Explicabo tenetur dignissimos aliquam, debitis aperiam tempora quae ratione ducimus eius perferendis cum soluta. Labore deleniti perspiciatis ad pariatur ipsum aliquam laborum placeat dignissimos ea beatae iusto, praesentium recusandae exercitationem iste necessitatibus obcaecati accusamus est delectus veritatis qui vero! Distinctio iure dolorem ad, molestiae, obcaecati alias quaerat tempore similique minima quod pariatur nam eum excepturi rem incidunt ipsa nostrum iste numquam molestias voluptatibus, perferendis natus? Odit consectetur ipsa temporibus velit magnam quod quas. Architecto error sed libero, accusamus quis nemo magnam. Architecto, neque est sunt tenetur asperiores excepturi in reiciendis, dolorem beatae amet qui nesciunt ipsam, illo perferendis perspiciatis! Porro veritatis explicabo consequatur nulla officia aut quam magni dolorem! Iste laudantium nulla distinctio officia corporis adipisci! Facilis dolor debitis esse recusandae animi aut molestias impedit ullam accusantium consectetur, sed natus neque nulla ex quod earum reiciendis similique quasi cumque. Unde, quia beatae mollitia id accusamus, repudiandae, fugiat obcaecati non sed pariatur voluptates distinctio? Eveniet, quas?</p>
+                        </div>
+                    
+                    <div class="tab-pane fade  p-3" id="chapter-one" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                        <h4 class="font-italic mb-4">Chapter one</h4>
+                            <p class="font-italic text-muted mb-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde quas facilis magni, temporibus eos autem. Voluptatibus praesentium adipisci consectetur expedita ducimus nobis dicta! Commodi odit numquam totam, facilis aut, ducimus et, officia vitae nam repudiandae dolore inventore illum excepturi ipsa magni quod voluptatum sed natus. Explicabo tenetur dignissimos aliquam, debitis aperiam tempora quae ratione ducimus eius perferendis cum soluta. Labore deleniti perspiciatis ad pariatur ipsum aliquam laborum placeat dignissimos ea beatae iusto, praesentium recusandae exercitationem iste necessitatibus obcaecati accusamus est delectus veritatis qui vero! Distinctio iure dolorem ad, molestiae, obcaecati alias quaerat tempore similique minima quod pariatur nam eum excepturi rem incidunt ipsa nostrum iste numquam molestias voluptatibus, perferendis natus? Odit consectetur ipsa temporibus velit magnam quod quas. Architecto error sed libero, accusamus quis nemo magnam. Architecto, neque est sunt tenetur asperiores excepturi in reiciendis, dolorem beatae amet qui nesciunt ipsam, illo perferendis perspiciatis! Porro veritatis explicabo consequatur nulla officia aut quam magni dolorem! Iste laudantium nulla distinctio officia corporis adipisci! Facilis dolor debitis esse recusandae animi aut molestias impedit ullam accusantium consectetur, sed natus neque nulla ex quod earum reiciendis similique quasi cumque. Unde, quia beatae mollitia id accusamus, repudiandae, fugiat obcaecati non sed pariatur voluptates distinctio? Eveniet, quas?</p>
+                        </div>
+                    
+                    <div class="tab-pane fade  p-3" id="chapter-two" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                        <h4 class="font-italic mb-4">Chapter two</h4>
+                            <p class="font-italic text-muted mb-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde quas facilis magni, temporibus eos autem. Voluptatibus praesentium adipisci consectetur expedita ducimus nobis dicta! Commodi odit numquam totam, facilis aut, ducimus et, officia vitae nam repudiandae dolore inventore illum excepturi ipsa magni quod voluptatum sed natus. Explicabo tenetur dignissimos aliquam, debitis aperiam tempora quae ratione ducimus eius perferendis cum soluta. Labore deleniti perspiciatis ad pariatur ipsum aliquam laborum placeat dignissimos ea beatae iusto, praesentium recusandae exercitationem iste necessitatibus obcaecati accusamus est delectus veritatis qui vero! Distinctio iure dolorem ad, molestiae, obcaecati alias quaerat tempore similique minima quod pariatur nam eum excepturi rem incidunt ipsa nostrum iste numquam molestias voluptatibus, perferendis natus? Odit consectetur ipsa temporibus velit magnam quod quas. Architecto error sed libero, accusamus quis nemo magnam. Architecto, neque est sunt tenetur asperiores excepturi in reiciendis, dolorem beatae amet qui nesciunt ipsam, illo perferendis perspiciatis! Porro veritatis explicabo consequatur nulla officia aut quam magni dolorem! Iste laudantium nulla distinctio officia corporis adipisci! Facilis dolor debitis esse recusandae animi aut molestias impedit ullam accusantium consectetur, sed natus neque nulla ex quod earum reiciendis similique quasi cumque. Unde, quia beatae mollitia id accusamus, repudiandae, fugiat obcaecati non sed pariatur voluptates distinctio? Eveniet, quas?</p>
+                        </div>
+                    <div class="tab-pane fade  show  p-3" id="chapter-three" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                        <h4 class="font-italic mb-4">Chapter three</h4>
+                            <p class="font-italic text-muted mb-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde quas facilis magni, temporibus eos autem. Voluptatibus praesentium adipisci consectetur expedita ducimus nobis dicta! Commodi odit numquam totam, facilis aut, ducimus et, officia vitae nam repudiandae dolore inventore illum excepturi ipsa magni quod voluptatum sed natus. Explicabo tenetur dignissimos aliquam, debitis aperiam tempora quae ratione ducimus eius perferendis cum soluta. Labore deleniti perspiciatis ad pariatur ipsum aliquam laborum placeat dignissimos ea beatae iusto, praesentium recusandae exercitationem iste necessitatibus obcaecati accusamus est delectus veritatis qui vero! Distinctio iure dolorem ad, molestiae, obcaecati alias quaerat tempore similique minima quod pariatur nam eum excepturi rem incidunt ipsa nostrum iste numquam molestias voluptatibus, perferendis natus? Odit consectetur ipsa temporibus velit magnam quod quas. Architecto error sed libero, accusamus quis nemo magnam. Architecto, neque est sunt tenetur asperiores excepturi in reiciendis, dolorem beatae amet qui nesciunt ipsam, illo perferendis perspiciatis! Porro veritatis explicabo consequatur nulla officia aut quam magni dolorem! Iste laudantium nulla distinctio officia corporis adipisci! Facilis dolor debitis esse recusandae animi aut molestias impedit ullam accusantium consectetur, sed natus neque nulla ex quod earum reiciendis similique quasi cumque. Unde, quia beatae mollitia id accusamus, repudiandae, fugiat obcaecati non sed pariatur voluptates distinctio? Eveniet, quas?</p>
+                        </div>
+                    
+                    <div class="tab-pane fade  p-3" id="chapter-four" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                        <h4 class="font-italic mb-4">Chapter four</h4>
+                            <p class="font-italic text-muted mb-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde quas facilis magni, temporibus eos autem. Voluptatibus praesentium adipisci consectetur expedita ducimus nobis dicta! Commodi odit numquam totam, facilis aut, ducimus et, officia vitae nam repudiandae dolore inventore illum excepturi ipsa magni quod voluptatum sed natus. Explicabo tenetur dignissimos aliquam, debitis aperiam tempora quae ratione ducimus eius perferendis cum soluta. Labore deleniti perspiciatis ad pariatur ipsum aliquam laborum placeat dignissimos ea beatae iusto, praesentium recusandae exercitationem iste necessitatibus obcaecati accusamus est delectus veritatis qui vero! Distinctio iure dolorem ad, molestiae, obcaecati alias quaerat tempore similique minima quod pariatur nam eum excepturi rem incidunt ipsa nostrum iste numquam molestias voluptatibus, perferendis natus? Odit consectetur ipsa temporibus velit magnam quod quas. Architecto error sed libero, accusamus quis nemo magnam. Architecto, neque est sunt tenetur asperiores excepturi in reiciendis, dolorem beatae amet qui nesciunt ipsam, illo perferendis perspiciatis! Porro veritatis explicabo consequatur nulla officia aut quam magni dolorem! Iste laudantium nulla distinctio officia corporis adipisci! Facilis dolor debitis esse recusandae animi aut molestias impedit ullam accusantium consectetur, sed natus neque nulla ex quod earum reiciendis similique quasi cumque. Unde, quia beatae mollitia id accusamus, repudiandae, fugiat obcaecati non sed pariatur voluptates distinctio? Eveniet, quas?</p>
+                        </div>
+                    
+                    <div class="tab-pane fade  p-3" id="chapter-five" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                        <h4 class="font-italic mb-4">Chapter five</h4>
+                            <p class="font-italic text-muted mb-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde quas facilis magni, temporibus eos autem. Voluptatibus praesentium adipisci consectetur expedita ducimus nobis dicta! Commodi odit numquam totam, facilis aut, ducimus et, officia vitae nam repudiandae dolore inventore illum excepturi ipsa magni quod voluptatum sed natus. Explicabo tenetur dignissimos aliquam, debitis aperiam tempora quae ratione ducimus eius perferendis cum soluta. Labore deleniti perspiciatis ad pariatur ipsum aliquam laborum placeat dignissimos ea beatae iusto, praesentium recusandae exercitationem iste necessitatibus obcaecati accusamus est delectus veritatis qui vero! Distinctio iure dolorem ad, molestiae, obcaecati alias quaerat tempore similique minima quod pariatur nam eum excepturi rem incidunt ipsa nostrum iste numquam molestias voluptatibus, perferendis natus? Odit consectetur ipsa temporibus velit magnam quod quas. Architecto error sed libero, accusamus quis nemo magnam. Architecto, neque est sunt tenetur asperiores excepturi in reiciendis, dolorem beatae amet qui nesciunt ipsam, illo perferendis perspiciatis! Porro veritatis explicabo consequatur nulla officia aut quam magni dolorem! Iste laudantium nulla distinctio officia corporis adipisci! Facilis dolor debitis esse recusandae animi aut molestias impedit ullam accusantium consectetur, sed natus neque nulla ex quod earum reiciendis similique quasi cumque. Unde, quia beatae mollitia id accusamus, repudiandae, fugiat obcaecati non sed pariatur voluptates distinctio? Eveniet, quas?</p>
+                        </div>
+                    
+                    <div class="tab-pane fade shadow rounded bg-white p-3" id="summary" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                        <h4 class="font-italic mb-4">Summary</h4>
+                            <p class="font-italic text-muted mb-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde quas facilis magni, temporibus eos autem. Voluptatibus praesentium adipisci consectetur expedita ducimus nobis dicta! Commodi odit numquam totam, facilis aut, ducimus et, officia vitae nam repudiandae dolore inventore illum excepturi ipsa magni quod voluptatum sed natus. Explicabo tenetur dignissimos aliquam, debitis aperiam tempora quae ratione ducimus eius perferendis cum soluta. Labore deleniti perspiciatis ad pariatur ipsum aliquam laborum placeat dignissimos ea beatae iusto, praesentium recusandae exercitationem iste necessitatibus obcaecati accusamus est delectus veritatis qui vero! Distinctio iure dolorem ad, molestiae, obcaecati alias quaerat tempore similique minima quod pariatur nam eum excepturi rem incidunt ipsa nostrum iste numquam molestias voluptatibus, perferendis natus? Odit consectetur ipsa temporibus velit magnam quod quas. Architecto error sed libero, accusamus quis nemo magnam. Architecto, neque est sunt tenetur asperiores excepturi in reiciendis, dolorem beatae amet qui nesciunt ipsam, illo perferendis perspiciatis! Porro veritatis explicabo consequatur nulla officia aut quam magni dolorem! Iste laudantium nulla distinctio officia corporis adipisci! Facilis dolor debitis esse recusandae animi aut molestias impedit ullam accusantium consectetur, sed natus neque nulla ex quod earum reiciendis similique quasi cumque. Unde, quia beatae mollitia id accusamus, repudiandae, fugiat obcaecati non sed pariatur voluptates distinctio? Eveniet, quas?</p>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script></body>
+</html>
