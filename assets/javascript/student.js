@@ -80,20 +80,20 @@ document.addEventListener('DOMContentLoaded', async () => {
 		oneCourse.style.marginLeft = '2rem';
 
 		oneCourse.innerHTML = `
-                <img src="${courseimage}" class="courseimage card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 style="font-size:15px;color:cyan" class="card-title coursename">${coursename}</h5>
-                  
-                  <h2 coursetitle style="font-size:15px;color:black">${coursetitle}</h2> 
-                  
-                  <p coursedetail style="" class="card-text">
-                    ${coursedetail}
-                  </p>
-                  <p>5⭐⭐⭐⭐⭐</p>
-                  <p style="color: brown">100 Students Enrolled</p>
-                  <a href="#" class="btn enroll btn-danger">Enroll</a>
-                </div>
-        `;
+				  <img src="${courseimage}" class="courseimage card-img-top" alt="..." />
+				  <div class="card-body">
+					<h5 style="font-size:15px;color:cyan" class="card-title coursename">${coursename}</h5>
+					
+					<h2 coursetitle style="font-size:15px;color:black">${coursetitle}</h2> 
+					
+					<p coursedetail style="" class="card-text">
+					  ${coursedetail}
+					</p>
+					<p>5⭐⭐⭐⭐⭐</p>
+					<p style="color: brown">100 Students Enrolled</p>
+					<a href="#" class="btn enroll btn-danger">Enroll</a>
+				  </div>
+		  `;
 		allCoursePlaceholder.appendChild(oneCourse);
 	}
 
@@ -140,43 +140,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 		studentCourse.courses.put(enrolledCourseInfo);
 
-		location = './takingcourse.html';
-	}
-
-	//// for enrollment
-
-	const enrolledList = document.querySelector('.enrolledList');
-
-	let getAllEnrolledCourse = await studentCourse.courses.toArray();
-	// console.log(getAllEnrolledCourse);
-
-	for (let index = 0; index < getAllEnrolledCourse.length; index++) {
-		let img = getAllEnrolledCourse[index].enrolledcourseImage;
-		let name = getAllEnrolledCourse[index].enrolledcourseName;
-		let title = getAllEnrolledCourse[index].enrolledcourseTitle;
-		let detail = getAllEnrolledCourse[index].enrolledcourseDetail;
-
-		let newEnrolledCourseElement = document.createElement('div');
-		newEnrolledCourseElement.className = 'card coursediv col-md-12';
-
-		let enrolledCourseInfo = {
-			enrolledcourseName: '',
-			enrolledcourseTitle: '',
-			enrolledcourseDetail: '',
-			enrolledcourseImage: '',
-		};
-
-		let enrollParentElement = e.target.parentElement;
-
-		let courseinfo = enrollParentElement.children;
-
-		enrolledCourseInfo.enrolledcourseName = courseinfo[0].textContent;
-		enrolledCourseInfo.enrolledcourseTitle = courseinfo[1].textContent;
-		enrolledCourseInfo.enrolledcourseDetail = courseinfo[2].textContent;
-		enrolledCourseInfo.enrolledcourseImage = enrollParentElement.parentElement.children[0].src;
-
-		studentCourse.courses.put(enrolledCourseInfo);
-
 		location = './courseDisplayInfo.html';
 	}
 
@@ -197,24 +160,24 @@ document.addEventListener('DOMContentLoaded', async () => {
 		newEnrolledCourseElement.className = 'card coursediv col-md-12';
 
 		newEnrolledCourseElement.innerHTML = ` <img src="${img}" class="courseimage card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 style="font-size:15px;color:cyan" class="card-title coursename">${name}</h5>
-            
-            <h2 coursetitle style="font-size:15px;color:black">${title}</h2> 
-            
-            <p coursedetail style="" class="card-text">
-              ${detail}
-            </p>
-            <p>5⭐⭐⭐⭐⭐</p>
-
-            <p style="color: brown">100 Students Enrolled</p>
-            <a href="./courseDisplayInfo.html" class="btn enroll btn-danger"> go to course</a>
-            <a href="#" class="btn remove btn-danger"> remove Course</a>
-            <a href="#" class="btn takequiz btn-danger"> take quiz</a>
-
-
-          </div>
-        `;
+			<div class="card-body">
+			  <h5 style="font-size:15px;color:cyan" class="card-title coursename">${name}</h5>
+			  
+			  <h2 coursetitle style="font-size:15px;color:black">${title}</h2> 
+			  
+			  <p coursedetail style="" class="card-text">
+				${detail}
+			  </p>
+			  <p>5⭐⭐⭐⭐⭐</p>
+  
+			  <p style="color: brown">100 Students Enrolled</p>
+			  <a href="./courseDisplayInfo.html" class="btn enroll btn-danger"> go to course</a>
+			  <a href="#" class="btn remove btn-danger"> remove Course</a>
+			  <a href="#" class="btn takequiz btn-danger"> take quiz</a>
+  
+  
+			</div>
+		  `;
 		enrolledList.appendChild(newEnrolledCourseElement);
 	}
 
@@ -296,20 +259,20 @@ document.addEventListener('DOMContentLoaded', async () => {
 		for (let index = 0; index < listOfQuestions.length; index++) {
 			let questionDiv = document.createElement('div');
 			questionDiv.innerHTML = `
-
-              
-
-                    <h3>${index + 1}, ${listOfQuestions[index].Question}</h3>
-                  &nbsp;  &nbsp; &nbsp;  <h4>a) . ${listOfQuestions[index].a}</h4>
-                  &nbsp;  &nbsp; &nbsp;   <h4>b) . ${listOfQuestions[index].b}</h4>
-                  &nbsp;  &nbsp; &nbsp;   <h4>c) . ${listOfQuestions[index].c}</h4>
-                  &nbsp;  &nbsp; &nbsp;   <h4>d) . ${listOfQuestions[index].d}</h4>
-
-
-
-
-              
-              `;
+  
+				
+  
+					  <h3>${index + 1}, ${listOfQuestions[index].Question}</h3>
+					&nbsp;  &nbsp; &nbsp;  <h4>a) . ${listOfQuestions[index].a}</h4>
+					&nbsp;  &nbsp; &nbsp;   <h4>b) . ${listOfQuestions[index].b}</h4>
+					&nbsp;  &nbsp; &nbsp;   <h4>c) . ${listOfQuestions[index].c}</h4>
+					&nbsp;  &nbsp; &nbsp;   <h4>d) . ${listOfQuestions[index].d}</h4>
+  
+  
+  
+  
+				
+				`;
 			let viewAnswer = document.createElement('a');
 			viewAnswer.className = 'btn viewAnswer';
 			viewAnswer.textContent = 'View Answer';

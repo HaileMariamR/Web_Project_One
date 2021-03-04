@@ -33,7 +33,10 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="auth.html">Home</a>
+							<a class="nav-link active" aria-current="page" href="#">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Link</a>
 						</li>
 					</ul>
 					<div id="profile" class="nav-item dropdown">
@@ -47,6 +50,7 @@
 						>
 						</a>
 						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<li><a class="dropdown-item" href="#">profile</a></li>
 							<li><a onclick="confirmAlert()" class="dropdown-item" href="#">sign out</a></li>
 							<li><hr class="dropdown-divider" /></li>
 							<p id="role" class="dropdown-item" style="font-size: 11px; color: black"></p>
@@ -63,7 +67,7 @@
 					<a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1">Upload course</a>
 				</li>
 				<li class="nav-item" role="presentation">
-					<a class="nav-link" id="edit" role="tab" data-toggle="tab" href="#tab-2">My courses</a>
+					<a class="nav-link" role="tab" data-toggle="tab" href="#tab-2">My courses</a>
 				</li>
 				<!-- <li class="nav-item" role="presentation">
 					<a class="nav-link" role="tab" data-toggle="tab" href="#tab-3">Activities</a>
@@ -71,11 +75,7 @@
 			</ul>
 			<div class="tab-content">
 				<div class="tab-pane" role="tabpanel" id="tab-2">
-					<div class="container-fluid">
-						<div class="container mt-2">
-							<div class="row courses"></div>
-						</div>
-					</div>
+					<p>Content for tab 2.</p>
 				</div>
 				<!-- <div class="tab-pane" role="tabpanel" id="tab-3">
 					<p>Content for tab 3.</p>
@@ -134,7 +134,10 @@
 							</div>
 
 							<div class="col-12">
-								<p>Please upload quality works.</p>
+								<p>
+									This course will be evaluated by the administrator before being displayed on the
+									main page!
+								</p>
 							</div>
 							<div class="col-12">
 								<button class="btn btn-primary" type="submit">Upload course</button>
@@ -153,10 +156,9 @@
 			crossorigin="anonymous"
 		></script>
 		<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-		<!-- db -->
+		<script type="module" src="./assets/javascript/uploadCourse.js"></script>
 		<script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
 		<script src="./assets/javascript/courseDb/allDatabase.js"></script>
-		<script type="module" src="./assets/javascript/uploadCourse.js"></script>
 		<!-- swal -->
 		<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 		<!-- cookie -->
