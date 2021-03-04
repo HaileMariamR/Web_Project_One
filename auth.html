@@ -235,7 +235,7 @@
 			<ul class="nav nav-tabs" role="tablist">
 				<li class="nav-item" role="presentation">
 					<a
-						onclick="buildCourse()"
+						onclick="buildCourse('')"
 						id="manage-course"
 						class="nav-link active"
 						role="tab"
@@ -246,7 +246,17 @@
 				</li>
 
 				<li class="nav-item" role="presentation">
-					<a class="nav-link" role="tab" data-toggle="tab" href="#tab-2">Programming</a>
+					<a class="nav-link" onclick="buildCourse('IT')" role="tab" data-toggle="tab" href="#tab-2">IT</a>
+				</li>
+				<li class="nav-item" role="presentation">
+					<a
+						class="nav-link"
+						onclick="buildCourse('Software Engineering')"
+						role="tab"
+						data-toggle="tab"
+						href="#tab-3"
+						>SE</a
+					>
 				</li>
 			</ul>
 			<!--  -->
@@ -254,7 +264,7 @@
 				<div class="tab-pane active" role="tabpanel" id="tab-1">
 					<div class="container-fluid">
 						<div class="container mt-2">
-							<div id="courses" class="row"></div>
+							<div class="row courses"></div>
 						</div>
 					</div>
 				</div>
@@ -262,7 +272,18 @@
 				<!--  -->
 				<!--  -->
 				<div class="tab-pane" role="tabpanel" id="tab-2">
-					<div class="container">hi</div>
+					<div class="container-fluid">
+						<div class="container mt-2">
+							<div class="courses row"></div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane" role="tabpanel" id="tab-3">
+					<div class="container-fluid">
+						<div class="container mt-2">
+							<div class="row courses"></div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>

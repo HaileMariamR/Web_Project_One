@@ -1,51 +1,26 @@
-// const logintempo = document.querySelector('#Login');
-// const signup = document.querySelector('#Signup');
-
-// signup.addEventListener('click' ,()=>{
-//     location = './signUpPage.html'
-// })
-
-// $('.owl-carousel').owlCarousel({
-// 	loop: true,
-// 	margin: 10,
-// 	nav: false,
-// 	autoplay: true,
-// 	autoplayTimeout: 2000,
-// 	dots: false,
-// 	responsive: {
-// 		0: {
-// 			items: 1,
-// 		},
-// 		600: {
-// 			items: 3,
-// 		},
-// 		1000: {
-// 			items: 5,
-// 		},
-// 	},
-// });
-
-// const enrollbtn = document.querySelector('.enroll');
-// enrollbtn.addEventListener('click' ,()=>{
-
-//         location = './takingCourse.html'
-
-// });
-
-// document.addEventListener('DOMContentLoaded', () => {
-// 	logintempo.addEventListener('click', () => {
-// 		location = './signupandlogin.html';
-// 	});
-// });
 const teach = document.querySelector('#teach');
 const info = document.querySelector('#stud');
 
-const courses = document.querySelector('#courses');
+const courses = document.querySelectorAll('.courses');
+console.log(courses);
 var enrollBtn = '';
 
 document.addEventListener('DOMContentLoaded', () => {
-	buildCourse();
+	buildCourse('');
 	enrollBtn = document.getElementsByClassName('enroll');
+	let ses = Cookies.get('user');
+	if (!ses) {
+		info.innerHTML = 'Start lrarning today.';
+	} else {
+		var z = [];
+		var res = sess.split('&');
+		for (let i of res) {
+			var arg = i.split('=');
+			z.push(arg);
+		}
+		namee = z[2][1];
+		info.innerHTML = `Welcome back ${namee}, continue where you left off.`;
+	}
 });
 
 async function getCourses() {
@@ -53,16 +28,23 @@ async function getCourses() {
 	return courses;
 }
 
-function buildCourse() {
-	courses.innerHTML = '';
+function buildCourse(section) {
 	getCourses().then((data) => {
-		// must be for enrolled courses
-		// if (data.length == 0) {
-		// 	info.innerHTML = 'Start lrarning today.';
-		// } else {
-		// 	info.innerHTML = 'Continue where you left off.';
-		// }
-		for (let index = 0; index < data.length; index++) {
+		var sec = data.filter((course) => {
+			if (section == '') {
+				return data;
+			}
+			return course.courseStream == section;
+		});
+
+		if (section == '') {
+			courses[0].innerHTML = '';
+		} else if (section == 'IT') {
+			courses[1].innerHTML = '';
+		} else {
+			courses[2].innerHTML = '';
+		}
+		for (let index = 0; index < sec.length; index++) {
 			const {
 				id,
 				courseTitle,
@@ -74,7 +56,7 @@ function buildCourse() {
 				courseRating,
 				instructorName,
 				enrolled,
-			} = data[index];
+			} = sec[index];
 
 			let oneCourse = document.createElement('div');
 			oneCourse.classList.add('col-md-3');
@@ -85,17 +67,22 @@ function buildCourse() {
 				<img src="${courseImage}" class="card-img-top" alt="..." />
 				<div class="card-body">
 					<h5 class="card-title">${courseTitle}</h5>
-					<p class="card-text">
-					${courseDescription}
-					</p>
-					<p>${courseRating}</p>
 					<p>Author: ${instructorName}</p>
-					<p style="color: brown">${courseDuration} Students Enrolled</p>
+					<p>Duration:  ${courseDuration}</p>
+					<p style="color: brown">${enrolled.length} Students Enrolled</p>
+					
 					<a class="enroll btn btn-danger" onclick="enroll(${id}, ${index})">Enroll</a>
+					<span>${coursePrice}</span>
 				</div>
 			</div>`;
 
-			courses.appendChild(oneCourse);
+			if (section == '') {
+				courses[0].appendChild(oneCourse);
+			} else if (section == 'IT') {
+				courses[1].appendChild(oneCourse);
+			} else {
+				courses[2].appendChild(oneCourse);
+			}
 		}
 	});
 }
