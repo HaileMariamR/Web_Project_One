@@ -2,7 +2,6 @@ const teach = document.querySelector('#teach');
 const info = document.querySelector('#stud');
 
 const courses = document.querySelectorAll('.courses');
-console.log(courses);
 var enrollBtn = '';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -19,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			z.push(arg);
 		}
 		namee = z[2][1];
-		info.innerHTML = `Welcome back ${namee}, continue where you left off.`;
+		info.innerHTML = `Welcome ${namee}, choose a course you would like to learn.`;
 	}
 });
 

@@ -88,6 +88,11 @@ function buildCourse(namee) {
 			return course.instructorName == namee;
 		});
 
+		if (sec.length == 0) {
+			courses.innerHTML = 'Please upload a course first.';
+			return;
+		}
+		courses.innerHTML = '';
 		for (let index = 0; index < sec.length; index++) {
 			const {
 				id,

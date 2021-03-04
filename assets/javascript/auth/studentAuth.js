@@ -1,5 +1,6 @@
 const email = document.querySelector('#navbarDropdown');
 const logIn = document.querySelector('#logIn');
+const si = document.querySelector('.si');
 
 const profile = document.querySelector('#profile');
 const role = document.querySelector('#role');
@@ -19,6 +20,7 @@ if (sess) {
 	role.textContent = z[1][1];
 } else {
 	logIn.style.display = '';
+	si.style.display = '';
 	profile.style.display = 'none';
 }
 
@@ -52,7 +54,7 @@ function checkAuth() {
 			z.push(arg);
 		}
 		let role = z[1][1];
-		
+
 		if (role == 'student') {
 			location = './login.html?login=0';
 		} else if (role == 'instructor') {
